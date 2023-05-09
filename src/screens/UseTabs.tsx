@@ -20,7 +20,7 @@ const contents = [
 	},
 ];
 
-export default function ScreenUseTabs() {
+export default function UseTabs() {
 	const { currentItem, changeItem } = useTabs(0, contents);
 	return (
 		<>

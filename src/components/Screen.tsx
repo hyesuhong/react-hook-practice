@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
-import ScreenUseInput from '../screens/ScreenUseInput';
-import ScreenUseTabs from '../screens/ScreenUseTabs';
+import UseInput from '../screens/UseInput';
+import UseTabs from '../screens/UseTabs';
+import UseTitle from '../screens/UseTitle';
+import UseClick from '../screens/UseClick';
 
 const Wrapper = styled.main`
 	flex: 1;
@@ -29,9 +31,13 @@ export default function Screen({ title }: IScreenProps) {
 const getScreen = (title: string) => {
 	switch (title) {
 		case 'useInput':
-			return <ScreenUseInput />;
+			return <UseInput />;
 		case 'useTabs':
-			return <ScreenUseTabs />;
+			return <UseTabs />;
+		case 'useTitle':
+			return <UseTitle />;
+		case 'useClick':
+			return <UseClick />;
 		default:
 			return null;
 	}

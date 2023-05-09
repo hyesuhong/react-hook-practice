@@ -2,10 +2,10 @@
 
 by making collection of custom hooks(from nomadcoder)
 
-- [ ] useInput
-- [ ] useTabs
-- [ ] useTitle
-- [ ] useClick
+- [x] useInput
+- [x] useTabs
+- [x] useTitle
+- [x] useClick
 - [ ] useConfirm
 - [ ] usePreventLeave
 - [ ] useBeforeLeave

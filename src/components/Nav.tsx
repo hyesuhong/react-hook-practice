@@ -91,6 +91,10 @@ const SCategory = styled.li`
 	&:hover {
 		color: #333;
 	}
+
+	&.current {
+		color: #00e07b;
+	}
 `;
 
 interface INavProps {
@@ -113,6 +117,11 @@ function Nav({ setMenu }: INavProps) {
 		const { target } = ev;
 		const t = target as Element;
 		setMenu(t.textContent || '');
+
+		const listParent = t.parentElement?.parentElement?.parentElement;
+		const allList = listParent?.querySelectorAll('ol li');
+
+		allList?.forEach((list) => list.classList.remove('current'));
 
 		t.classList.add('current');
 	};
