@@ -3,6 +3,9 @@ import UseInput from '../screens/UseInput';
 import UseTabs from '../screens/UseTabs';
 import UseTitle from '../screens/UseTitle';
 import UseClick from '../screens/UseClick';
+import UseConfirm from '../screens/UseConfirm';
+import UsePreventLeave from '../screens/UsePreventLeave';
+import UseBeforeLeave from '../screens/UseBeforeLeave';
 
 const Wrapper = styled.main`
 	flex: 1;
@@ -38,6 +41,12 @@ const getScreen = (title: string) => {
 			return <UseTitle />;
 		case 'useClick':
 			return <UseClick />;
+		case 'useConfirm':
+			return <UseConfirm />;
+		case 'usePreventLeave':
+			return <UsePreventLeave />;
+		case 'useBeforeLeave':
+			return <UseBeforeLeave />;
 		default:
 			return null;
 	}

@@ -159,7 +159,8 @@ const menu = [
 		small: [
 			'useTitle',
 			'useClick',
-			'useConfirm & usePreventLeave',
+			'useConfirm',
+			'usePreventLeave',
 			'useBeforeLeave',
 			'useFadeIn & useNetwork',
 			'useScroll & useFullscreen',

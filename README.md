@@ -6,9 +6,9 @@ by making collection of custom hooks(from nomadcoder)
 - [x] useTabs
 - [x] useTitle
 - [x] useClick
-- [ ] useConfirm
-- [ ] usePreventLeave
-- [ ] useBeforeLeave
+- [x] useConfirm
+- [x] usePreventLeave
+- [x] useBeforeLeave
 - [ ] useFadeIn
 - [ ] useNetwork
 - [ ] useScroll
