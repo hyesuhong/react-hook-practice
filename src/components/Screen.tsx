@@ -6,6 +6,12 @@ import UseClick from '../screens/UseClick';
 import UseConfirm from '../screens/UseConfirm';
 import UsePreventLeave from '../screens/UsePreventLeave';
 import UseBeforeLeave from '../screens/UseBeforeLeave';
+import UseFadeIn from '../screens/UseFadeIn';
+import UseNetwork from '../screens/UseNetwork';
+import UseScroll from '../screens/UseScroll';
+import UseFullscreen from '../screens/UseFullscreen';
+import UseNoti from '../screens/UseNoti';
+import UseAxios from '../screens/UseAxios';
 
 const Wrapper = styled.main`
 	flex: 1;
@@ -47,6 +53,18 @@ const getScreen = (title: string) => {
 			return <UsePreventLeave />;
 		case 'useBeforeLeave':
 			return <UseBeforeLeave />;
+		case 'useFadeIn':
+			return <UseFadeIn />;
+		case 'useNetwork':
+			return <UseNetwork />;
+		case 'useScroll':
+			return <UseScroll />;
+		case 'useFullscreen':
+			return <UseFullscreen />;
+		case 'useNotification':
+			return <UseNoti />;
+		case 'useAxios':
+			return <UseAxios />;
 		default:
 			return null;
 	}

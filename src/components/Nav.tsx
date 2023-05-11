@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NavWrapper = styled.nav`
+	position: sticky;
+	top: 0;
+
 	height: 100vh;
 	border-right: 1px solid #eee;
 
@@ -162,8 +165,10 @@ const menu = [
 			'useConfirm',
 			'usePreventLeave',
 			'useBeforeLeave',
-			'useFadeIn & useNetwork',
-			'useScroll & useFullscreen',
+			'useFadeIn',
+			'useNetwork',
+			'useScroll',
+			'useFullscreen',
 			'useNotification',
 			'useAxios',
 		],

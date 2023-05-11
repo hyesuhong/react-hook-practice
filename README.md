@@ -9,9 +9,9 @@ by making collection of custom hooks(from nomadcoder)
 - [x] useConfirm
 - [x] usePreventLeave
 - [x] useBeforeLeave
-- [ ] useFadeIn
-- [ ] useNetwork
-- [ ] useScroll
-- [ ] useFullscreen
-- [ ] useNotification
-- [ ] useAxios
+- [x] useFadeIn
+- [x] useNetwork
+- [x] useScroll
+- [x] useFullscreen
+- [x] useNotification
+- [x] useAxios
