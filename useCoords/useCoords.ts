@@ -11,7 +11,7 @@ export interface ICoordsError {
 }
 
 export function useCoords() {
-	const [loading, setLoading] = useState<boolean | null>(null);
+	const [loading, setLoading] = useState<boolean>(false);
 	const [coords, setCoords] = useState<IUseCoords | null>(null);
 	const [error, setError] = useState<ICoordsError | null>(null);
 
