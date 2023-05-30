@@ -7,7 +7,7 @@ export interface ICoordsError {
     message: string;
 }
 export declare function useCoords(): {
-    loading: boolean | null;
+    loading: boolean;
     coords: IUseCoords | null;
     error: ICoordsError | null;
     getPosition: () => void;
