@@ -1,0 +1,36 @@
+{
+	"name": "@su-hooks/use-coords",
+	"version": "1.0.0",
+	"description": "React hook to get user's current coordinates",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hyesuhong/su-hooks.git"
+	},
+	"keywords": [
+		"react",
+		"hooks",
+		"coordinates",
+		"geolocation"
+	],
+	"author": "Hyesu Hong <honghs95@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hyesuhong/su-hooks/issues"
+	},
+	"homepage": "https://github.com/hyesuhong/su-hooks#readme",
+	"peerDependencies": {
+		"@types/react": "^18.2.7",
+		"@types/react-dom": "^18.2.4",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.4"
+	}
+}
