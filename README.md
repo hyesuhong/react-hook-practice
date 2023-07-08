@@ -1,17 +1,9 @@
-# Let's practice React Hooks!
+# SU-HOOKS
 
-by making collection of custom hooks(from nomadcoder)
+Collection of custom React hooks ready to install with NPM.
 
-- [x] useInput
-- [x] useTabs
-- [x] useTitle
-- [x] useClick
-- [x] useConfirm
-- [x] usePreventLeave
-- [x] useBeforeLeave
-- [x] useFadeIn
-- [x] useNetwork
-- [x] useScroll
-- [x] useFullscreen
-- [x] useNotification
-- [x] useAxios
+## Each hook has its own pacakge
+
+| Hook      | Description                    |                                 Document                                 |                          NPM Page                          |
+| --------- | ------------------------------ | :----------------------------------------------------------------------: | :--------------------------------------------------------: |
+| useCoords | Get user's current coordinates | [View](https://github.com/hyesuhong/su-hooks/tree/main/useCoords#readme) | [View](https://www.npmjs.com/package/@su-hooks/use-coords) |
