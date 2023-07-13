@@ -36,9 +36,9 @@ function App() {
 
 ### Returns
 
-| Return value | Type     | Description                                                                                                                                                                                        | Default vavlue |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| loading      | Boolean  | A boolean representing if the Geolocation API loading.                                                                                                                                             | false          |
-| error        | Object   | An object representing error code and error message. If you want the error code's meaning, get information from [here](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError). | null           |
-| coords       | Object   | This has latitude and longitude information.                                                                                                                                                       | null           |
-| getPosition  | function | Function wrapped around the Geolocation API's getCurrentPosition function logic.                                                                                                                   | null           |
+| Return value | Type     | Description                                                                                                                                                                                        | Default value |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| loading      | Boolean  | A boolean representing if the Geolocation API loading.                                                                                                                                             | false         |
+| error        | Object   | An object representing error code and error message. If you want the error code's meaning, get information from [here](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError). | null          |
+| coords       | Object   | This has latitude and longitude information.                                                                                                                                                       | null          |
+| getPosition  | function | Function wrapped around the Geolocation API's getCurrentPosition function logic.                                                                                                                   | null          |
