@@ -1,0 +1,35 @@
+{
+	"name": "@su-hooks/use-intersection",
+	"version": "1.0.0",
+	"description": "React hook to use intersection API",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "rm -rf dist && mkdir dist && tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hyesuhong/su-hooks.git"
+	},
+	"keywords": [
+		"react",
+		"hooks",
+		"intersection",
+		"scroll"
+	],
+	"author": "Hyesu Hong <honghs95@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hyesuhong/su-hooks/issues"
+	},
+	"homepage": "https://github.com/hyesuhong/su-hooks#readme",
+	"devDependencies": {
+		"typescript": "^5.1.6"
+	},
+	"peerDependencies": {
+		"@types/react": "^18.2.14",
+		"@types/react-dom": "^18.2.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	}
+}
