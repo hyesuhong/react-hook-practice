@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useIntersection = void 0;
 var react_1 = require("react");
 var useIntersection = function (_a) {
-    var root = _a.root, rootMargin = _a.rootMargin, thresholds = _a.thresholds, callback = _a.callback;
+    var root = _a.root, rootMargin = _a.rootMargin, thresholds = _a.thresholds, handleIntersection = _a.handleIntersection;
     var ref = (0, react_1.useRef)(null);
     var marginString = rootMargin
         ? "".concat(typeof rootMargin.top === 'number'
@@ -21,7 +21,7 @@ var useIntersection = function (_a) {
         rootMargin: marginString,
         threshold: thresholds || 0,
     };
-    var observer = new IntersectionObserver(callback, intersectionOpt);
+    var observer = new IntersectionObserver(handleIntersection, intersectionOpt);
     (0, react_1.useEffect)(function () {
         if (!ref.current)
             return;

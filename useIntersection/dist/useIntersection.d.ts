@@ -11,9 +11,9 @@ interface IntersectionOption {
     thresholds?: number | number[];
 }
 export interface IUseIntersection extends IntersectionOption {
-    callback: IntersectionCB;
+    handleIntersection: IntersectionCB;
 }
-export declare const useIntersection: <T extends HTMLElement>({ root, rootMargin, thresholds, callback, }: IUseIntersection) => {
+export declare const useIntersection: <T extends HTMLElement>({ root, rootMargin, thresholds, handleIntersection, }: IUseIntersection) => {
     ref: import("react").RefObject<T>;
     observer: IntersectionObserver;
 };
