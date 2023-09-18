@@ -1,20 +1,14 @@
 /// <reference types="react" />
-export type IntersectionCB = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => void;
-interface IntersectionOption {
+export type IntersectionHandler = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => void;
+type marginType = number | string;
+export type IntersectionMargin = [marginType] | [marginType, marginType] | [marginType, marginType, marginType] | [marginType, marginType, marginType, marginType];
+export interface IntersectionOption {
     root?: HTMLElement;
-    rootMargin?: {
-        top: number | string;
-        right: number | string;
-        bottom: number | string;
-        left: number | string;
-    };
+    rootMargin?: IntersectionMargin;
     thresholds?: number | number[];
 }
 export interface IUseIntersection extends IntersectionOption {
-    handleIntersection: IntersectionCB;
+    callbackIntersection: IntersectionHandler;
 }
-export declare const useIntersection: <T extends HTMLElement>({ root, rootMargin, thresholds, handleIntersection, }: IUseIntersection) => {
-    ref: import("react").RefObject<T>;
-    observer: IntersectionObserver;
-};
+export declare const useIntersection: <T extends HTMLElement>({ root, rootMargin, thresholds, callbackIntersection, }: IUseIntersection) => import("react").RefObject<T>;
 export {};

@@ -3,33 +3,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useIntersection = void 0;
 var react_1 = require("react");
 var useIntersection = function (_a) {
-    var root = _a.root, rootMargin = _a.rootMargin, thresholds = _a.thresholds, handleIntersection = _a.handleIntersection;
+    var root = _a.root, rootMargin = _a.rootMargin, thresholds = _a.thresholds, callbackIntersection = _a.callbackIntersection;
     var ref = (0, react_1.useRef)(null);
-    var marginString = rootMargin
-        ? "".concat(typeof rootMargin.top === 'number'
-            ? "".concat(rootMargin.top, "px")
-            : rootMargin.top, " ").concat(typeof rootMargin.right === 'number'
-            ? "".concat(rootMargin.right, "px")
-            : rootMargin.right, " ").concat(typeof rootMargin.bottom === 'number'
-            ? "".concat(rootMargin.bottom, "px")
-            : rootMargin.bottom, " ").concat(typeof rootMargin.left === 'number'
-            ? "".concat(rootMargin.left, "px")
-            : rootMargin.left)
-        : '0px 0px 0px 0px';
-    var intersectionOpt = {
+    var marginString = rootMargin ? getIntersectionMargin(rootMargin) : '0px';
+    var intersectionOpt = (0, react_1.useMemo)(function () { return ({
         root: root || null,
         rootMargin: marginString,
         threshold: thresholds || 0,
-    };
-    var observer = new IntersectionObserver(handleIntersection, intersectionOpt);
+    }); }, [marginString, root, thresholds]);
+    var intersectionHandler = (0, react_1.useCallback)(callbackIntersection, [
+        callbackIntersection,
+    ]);
     (0, react_1.useEffect)(function () {
-        if (!ref.current)
-            return;
-        observer.observe(ref.current);
+        var observer = !ref.current
+            ? undefined
+            : new IntersectionObserver(intersectionHandler, intersectionOpt);
+        if (observer && ref.current)
+            observer.observe(ref.current);
         return function () {
-            observer.disconnect();
+            observer && observer.disconnect();
         };
-    }, []);
-    return { ref: ref, observer: observer };
+    }, [ref, intersectionHandler, intersectionOpt]);
+    return ref;
 };
 exports.useIntersection = useIntersection;
+var getIntersectionMargin = function (marginOption) {
+    var setMarginAllString = marginOption.map(function (margin) {
+        return typeof margin === 'number' ? "".concat(margin, "px") : margin;
+    });
+    return setMarginAllString.join(' ');
+};
