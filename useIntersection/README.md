@@ -15,12 +15,12 @@ import react from 'react';
 import useIntersection from '@su-hooks/use-intersection';
 
 function App() {
-	const handleIntersection = (entries, observer) => {
+	const callbackIntersection = (entries, observer) => {
 		// something...
 	};
-	const { ref, observer } = useIntersection<HTMLDivElement>({
-		handleIntersection,
-		rootMargin: { top: '-50%', right: 0, bottom: '-50%', left: 0 },
+	const ref = useIntersection<HTMLDivElement>({
+		callbackIntersection,
+		rootMargin: ['-50%', 0],
 		thresholds: [0, 1],
 	});
 
@@ -30,19 +30,18 @@ function App() {
 
 ### Properties
 
-| Name               | Type               | Required | Default          |
-| ------------------ | ------------------ | :------: | ---------------- |
-| root               | HTMLElement        |    ✕     | browser viewport |
-| rootMargin         | Object             |    ✕     | 0                |
-| thresholds         | number \| number[] |    ✕     | 0                |
-| handleIntersection | Function           |    ○     | null             |
+| Name               | Type                 | Required | Default          |
+| ------------------ | -------------------- | :------: | ---------------- |
+| root               | HTMLElement          |    ✕     | browser viewport |
+| rootMargin         | <string \| number>[] |    ✕     | 0                |
+| thresholds         | number \| number[]   |    ✕     | 0                |
+| handleIntersection | Function             |    ○     | null             |
 
 <details>
 	<summary>root</summary>
 
- 
- - Element used as the viewport. If it is not specified or is `NULL`, default value is browser's viewport.
- 
+- Element used as the viewport. If it is not specified or is `NULL`, default value is browser's viewport.
+
 </details>
 
 <details>
@@ -53,14 +52,15 @@ function App() {
  - Type definition
 
 ```typescript
-{
-	top: number | string;
-	right: number | string;
-	bottom: number | string;
-	left: number | string;
-}
+type marginType = number | string;
+type IntersectionMargin =
+	| [marginType]
+	| [marginType, marginType]
+	| [marginType, marginType, marginType]
+	| [marginType, marginType, marginType, marginType];
 ```
 
+- Margin Array order is same as `CSS margin` order
 - If property sent as `number`, the unit is considered `px`.
 - If property sent as `string`, the unit must be `px` or `%`.
 </details>
@@ -72,17 +72,17 @@ function App() {
 </details>
 
 <details>
-	<summary>handleIntersection</summary>
+	<summary>callbackIntersection</summary>
 	
 - When occured intersection, use this handling function
 - Type Definition
 
-  ```typescript
-	type IntersectionCB = (
-		entries: IntersectionObserverEntry[],
-		observer: IntersectionObserver
-	) => void;
-	```
+```typescript
+type IntersectionHandler = (
+	entries: IntersectionObserverEntry[],
+	observer: IntersectionObserver
+) => void;
+```
 
 - entiries: observer's target element array
 </details>
@@ -91,9 +91,6 @@ If you want more information of Intersection API, please visit **[here](https://
 
 ### Returns
 
-| Return   | Type                 | Description                    |
-| -------- | -------------------- | ------------------------------ |
-| ref      | RefObject            | Intersection Observer's target |
-| observer | IntersectionObserver | Intersection Observer |
-
-
+| Return | Type      | Description                    |
+| ------ | --------- | ------------------------------ |
+| ref    | RefObject | Intersection Observer's target |
