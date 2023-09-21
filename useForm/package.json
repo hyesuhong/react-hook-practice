@@ -1,0 +1,37 @@
+{
+	"name": "@su-hooks/use-form",
+	"version": "0.0.1",
+	"description": "Custom React hook to use form with input validator",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "rm -rf dist && mkdir dist && tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hyesuhong/su-hooks.git"
+	},
+	"keywords": [
+		"react",
+		"hooks",
+		"form",
+		"input",
+		"validator"
+	],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hyesuhong/su-hooks/issues"
+	},
+	"homepage": "https://github.com/hyesuhong/su-hooks#readme",
+	"devDependencies": {
+		"typescript": "^5.2.2"
+	},
+	"peerDependencies": {
+		"@types/react": "^18.2.22",
+		"@types/react-dom": "^18.2.7",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	}
+}
