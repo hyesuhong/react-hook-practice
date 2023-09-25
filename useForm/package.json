@@ -19,7 +19,7 @@
 		"input",
 		"validator"
 	],
-	"author": "",
+	"author": "Hyesu Hong <honghs95@gmail.com>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/hyesuhong/su-hooks/issues"
