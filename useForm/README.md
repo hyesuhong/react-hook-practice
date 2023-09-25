@@ -28,7 +28,7 @@ export default function App() {
 	});
 
 	return (
-		<form onSubmit={hancleSubmit}>
+		<form onSubmit={handleSubmit}>
 			<input
 				type='email'
 				name='email'
@@ -54,7 +54,7 @@ export default function App() {
 | Name          | Type       | Required | Default |
 | ------------- | ---------- | :------: | ------- |
 | inputs        | inputProps |    ○     | null    |
-| submitHandler | () => void |    ✕     | null    |
+| submitHandler | Function   |    ✕     | null    |
 
 - inputs
 
