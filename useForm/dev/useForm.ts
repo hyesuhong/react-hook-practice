@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 
-interface UseForm {
-	inputs: inputProps;
-	submitHandler: () => void;
-}
+export type validator = (value: string) => boolean;
 
 export interface inputProps {
 	[key: string]: { value: string; validator?: validator };
+}
+
+interface UseForm {
+	inputs: inputProps;
+	submitHandler: () => void;
 }
 
 interface inputReturns {
@@ -15,8 +17,6 @@ interface inputReturns {
 		isValid?: boolean;
 	};
 }
-
-export type validator = (value: string) => boolean;
 
 export const useForm = ({ inputs, submitHandler }: UseForm) => {
 	const initialForm = Object.keys(inputs).reduce((acc, input) => {
