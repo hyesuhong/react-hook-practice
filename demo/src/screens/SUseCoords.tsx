@@ -49,7 +49,6 @@ const SUseCoords = () => {
 							const match = /language-(\w+)/.exec(className || '');
 							return match ? (
 								<SyntaxHighlighter
-									{...rest}
 									children={String(children).replace(/\n$/, '')}
 									style={oneDark}
 									language={match[1]}
@@ -126,13 +125,13 @@ const SUseCoords = () => {
 			<h3 className={S.SubTitle}>Example</h3>
 			<div className={S.CodeBox}>
 				<Markdown
+					children={exampleCode}
 					components={{
 						code(props) {
 							const { children, className, node, ...rest } = props;
 							const match = /language-(\w+)/.exec(className || '');
 							return match ? (
 								<SyntaxHighlighter
-									{...rest}
 									children={String(children).replace(/\n$/, '')}
 									style={oneDark}
 									language={match[1]}
@@ -145,9 +144,9 @@ const SUseCoords = () => {
 							);
 						},
 					}}
-				>
-					{exampleCode}
-				</Markdown>
+				/>
+
+				{/* </Markdown> */}
 			</div>
 		</>
 	);
