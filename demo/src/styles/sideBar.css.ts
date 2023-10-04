@@ -4,6 +4,7 @@ export const sideBarWrapper = style({
 	padding: '1rem 0',
 	position: 'sticky',
 	top: 0,
+	width: '16rem',
 	height: '100vh',
 	borderRight: '1px solid #eee',
 });
@@ -13,7 +14,6 @@ export const sideBarTitle = style({
 	fontWeight: '700',
 	marginBottom: '3rem',
 	padding: '0 1rem',
-	textTransform: 'capitalize',
 });
 
 export const sideBarList = style({
