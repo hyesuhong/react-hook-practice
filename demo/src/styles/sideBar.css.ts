@@ -14,6 +14,7 @@ export const sideBarTitle = style({
 	fontWeight: '700',
 	marginBottom: '3rem',
 	padding: '0 1rem',
+	cursor: 'pointer',
 });
 
 export const sideBarList = style({

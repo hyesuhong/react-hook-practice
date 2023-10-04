@@ -4,7 +4,10 @@ import { useMenu, useMenuDispatch } from '../contexts/MenuContext';
 const SideBar = () => {
 	const { menu, current } = useMenu();
 	const dispatch = useMenuDispatch();
-	const onClick = (e: React.MouseEvent<HTMLLIElement>) => {
+	const onTitleClick = () => {
+		dispatch && dispatch({ type: 'RESET' });
+	};
+	const onMenuClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		const {
 			currentTarget: { textContent },
 		} = e;
@@ -14,14 +17,16 @@ const SideBar = () => {
 
 	return (
 		<aside className={S.sideBarWrapper}>
-			<h1 className={S.sideBarTitle}>su-hooks</h1>
+			<h1 className={S.sideBarTitle} onClick={onTitleClick}>
+				su-hooks
+			</h1>
 			<ul>
 				{menu.map((item, index) => (
 					<li
 						className={`${S.sideBarList}${
 							current === index ? ' selected' : ''
 						}`}
-						onClick={onClick}
+						onClick={onMenuClick}
 						key={index}
 					>
 						{item}

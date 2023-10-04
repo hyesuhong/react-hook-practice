@@ -17,7 +17,7 @@ type menuObj = {
 	current: number;
 };
 
-export type reducerAction = 'CHANGE';
+export type reducerAction = 'CHANGE' | 'RESET';
 type actionObj = { type: reducerAction; selected?: string };
 
 const initialMenuState = {
@@ -55,7 +55,7 @@ export default function MenuProvider({ menu, children }: menuProvider) {
 const menuReducer: Reducer<menuObj, actionObj> = (prevState, action) => {
 	switch (action.type) {
 		case 'CHANGE':
-			return action.selected
+			const nextState = action.selected
 				? {
 						...prevState,
 						current: prevState.menu.findIndex(
@@ -63,5 +63,8 @@ const menuReducer: Reducer<menuObj, actionObj> = (prevState, action) => {
 						),
 				  }
 				: { ...prevState };
+			return nextState;
+		case 'RESET':
+			return { ...prevState, current: -1 };
 	}
 };
