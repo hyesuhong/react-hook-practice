@@ -1,5 +1,6 @@
 import * as S from '../styles/sideBar.css';
 import { useMenu, useMenuDispatch } from '../contexts/MenuContext';
+import IcoGithub from '../assets/ico-github.svg?react';
 
 const SideBar = () => {
 	const { menu, current } = useMenu();
@@ -33,6 +34,13 @@ const SideBar = () => {
 					</li>
 				))}
 			</ul>
+			<ol className={S.LinkList}>
+				<li>
+					<a href='https://github.com/hyesuhong/su-hooks' target='_blank'>
+						<IcoGithub className={S.Icon} />
+					</a>
+				</li>
+			</ol>
 		</aside>
 	);
 };

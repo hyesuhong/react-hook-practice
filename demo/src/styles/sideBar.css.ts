@@ -4,6 +4,9 @@ export const sideBarWrapper = style({
 	padding: '1rem 0',
 	position: 'sticky',
 	top: 0,
+
+	display: 'grid',
+	gridTemplateRows: 'max-content minmax(0,1fr) min-content',
 	width: '16rem',
 	height: '100vh',
 	borderRight: '1px solid #eee',
@@ -55,4 +58,16 @@ export const sideBarList = style({
 			transform: 'rotate(45deg)',
 		},
 	},
+});
+
+export const LinkList = style({
+	display: 'flex',
+	alignItems: 'center',
+	padding: '0 1rem',
+});
+
+export const Icon = style({
+	width: '3.2rem',
+	height: '3.2rem',
+	fill: '#333',
 });
