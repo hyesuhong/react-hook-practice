@@ -1,6 +1,9 @@
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {
+	oneDark,
+	oneLight,
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface codeBlock {
 	code: string;
@@ -17,7 +20,7 @@ const CodeBlock = ({ code }: codeBlock) => {
 						return match ? (
 							<SyntaxHighlighter
 								children={String(children).replace(/\n$/, '')}
-								style={oneDark}
+								style={oneLight}
 								language={match[1]}
 								PreTag='div'
 							/>

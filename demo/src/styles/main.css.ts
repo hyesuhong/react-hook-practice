@@ -22,10 +22,9 @@ export const SubTitle = style({
 
 export const CodeBox = style({
 	maxWidth: '80rem',
-	background: '#eee',
-	// padding: '1rem',
 	fontSize: '1.4rem',
-	// borderRadius: '0.4rem',
+	borderRadius: '0.4rem',
+	overflow: 'hidden',
 });
 
 export const Table = style({
