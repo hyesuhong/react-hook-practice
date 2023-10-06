@@ -1,6 +1,4 @@
-import Markdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import CodeBlock from '../components/CodeBlock';
 import * as S from '../styles/main.css';
 
 const installCode = `~~~shell
@@ -42,28 +40,7 @@ const SUseCoords = () => {
 
 			<h3 className={S.SubTitle}>Installation</h3>
 			<div className={S.CodeBox}>
-				<Markdown
-					components={{
-						code(props) {
-							const { children, className, node, ...rest } = props;
-							const match = /language-(\w+)/.exec(className || '');
-							return match ? (
-								<SyntaxHighlighter
-									children={String(children).replace(/\n$/, '')}
-									style={oneDark}
-									language={match[1]}
-									PreTag='div'
-								/>
-							) : (
-								<code {...rest} className={className}>
-									{children}
-								</code>
-							);
-						},
-					}}
-				>
-					{installCode}
-				</Markdown>
+				<CodeBlock code={installCode} />
 			</div>
 
 			<h3 className={S.SubTitle}>Return Values</h3>
@@ -124,29 +101,7 @@ const SUseCoords = () => {
 
 			<h3 className={S.SubTitle}>Example</h3>
 			<div className={S.CodeBox}>
-				<Markdown
-					children={exampleCode}
-					components={{
-						code(props) {
-							const { children, className, node, ...rest } = props;
-							const match = /language-(\w+)/.exec(className || '');
-							return match ? (
-								<SyntaxHighlighter
-									children={String(children).replace(/\n$/, '')}
-									style={oneDark}
-									language={match[1]}
-									PreTag='div'
-								/>
-							) : (
-								<code {...rest} className={className}>
-									{children}
-								</code>
-							);
-						},
-					}}
-				/>
-
-				{/* </Markdown> */}
+				<CodeBlock code={exampleCode} />
 			</div>
 		</>
 	);
