@@ -1,5 +1,6 @@
 import CodeBlock from '../components/CodeBlock';
 import CodePreview from '../components/CodePreview';
+import useSandboxFile from '../hooks/useSandboxFile';
 import * as S from '../styles/main.css';
 
 const installCode = `~~~shell
@@ -33,7 +34,9 @@ function App() {
 
 const sandboxId = 'usecoords-ex-psy5d9';
 
-const SUseCoords = async () => {
+const SUseCoords = () => {
+	const files = useSandboxFile(sandboxId);
+
 	return (
 		<>
 			<p className={S.MainPara}>
@@ -104,7 +107,7 @@ const SUseCoords = async () => {
 
 			<h3 className={S.SubTitle}>Preview</h3>
 			<div className={S.CodeBox}>
-				<CodePreview />
+				{files.files && <CodePreview files={files.files} />}
 			</div>
 
 			<h3 className={S.SubTitle}>Example</h3>

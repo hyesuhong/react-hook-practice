@@ -14,7 +14,7 @@ const CodePreview = ({ height = 250, files }: codePreview) => {
 	return (
 		<SandpackProvider template='react' files={files}>
 			<SandpackLayout>
-				<SandpackPreview style={{ height }} />
+				<SandpackPreview style={{ height }} showOpenInCodeSandbox={false} />
 			</SandpackLayout>
 		</SandpackProvider>
 	);
