@@ -1,4 +1,5 @@
 import CodeBlock from '../components/CodeBlock';
+import CodePreview from '../components/CodePreview';
 import * as S from '../styles/main.css';
 
 const installCode = `~~~shell
@@ -30,7 +31,9 @@ function App() {
 ~~~
 `;
 
-const SUseCoords = () => {
+const sandboxId = 'usecoords-ex-psy5d9';
+
+const SUseCoords = async () => {
 	return (
 		<>
 			<p className={S.MainPara}>
@@ -98,6 +101,11 @@ const SUseCoords = () => {
 					</tr>
 				</tbody>
 			</table>
+
+			<h3 className={S.SubTitle}>Preview</h3>
+			<div className={S.CodeBox}>
+				<CodePreview />
+			</div>
 
 			<h3 className={S.SubTitle}>Example</h3>
 			<div className={S.CodeBox}>
