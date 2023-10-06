@@ -9,6 +9,10 @@ interface codeBlock {
 	code: string;
 }
 
+// TODO: Create a theme switch, then apply the theme
+const theme = 'light';
+const syntaxStyle = theme === 'light' ? oneLight : oneDark;
+
 const CodeBlock = ({ code }: codeBlock) => {
 	return (
 		<>
@@ -20,7 +24,7 @@ const CodeBlock = ({ code }: codeBlock) => {
 						return match ? (
 							<SyntaxHighlighter
 								children={String(children).replace(/\n$/, '')}
-								style={oneLight}
+								style={syntaxStyle}
 								language={match[1]}
 								PreTag='div'
 							/>
