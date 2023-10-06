@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const Wrapper = style({
-	padding: '1rem',
+	padding: '1rem 1rem 4rem',
 });
 
 export const MainTitle = style({
