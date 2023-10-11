@@ -2,6 +2,7 @@ import { useMenu } from '../contexts/MenuContext';
 import * as S from '../styles/main.css';
 import Home from '../screens/Home';
 import SUseCoords from '../screens/SUseCoords';
+import SUseIntersection from '../screens/SUseIntersection';
 
 const Main = () => {
 	const { menu, current } = useMenu();
@@ -27,6 +28,8 @@ function getScreen(menuName: string) {
 	switch (menuName) {
 		case 'useCoords':
 			return <SUseCoords />;
+		case 'useIntersection':
+			return <SUseIntersection />;
 		default:
 			return <>not found</>;
 	}
