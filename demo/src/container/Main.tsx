@@ -3,6 +3,7 @@ import * as S from '../styles/main.css';
 import Home from '../screens/Home';
 import SUseCoords from '../screens/SUseCoords';
 import SUseIntersection from '../screens/SUseIntersection';
+import SUseForm from '../screens/SUseForm';
 
 const Main = () => {
 	const { menu, current } = useMenu();
@@ -30,6 +31,8 @@ function getScreen(menuName: string) {
 			return <SUseCoords />;
 		case 'useIntersection':
 			return <SUseIntersection />;
+		case 'useForm':
+			return <SUseForm />;
 		default:
 			return <>not found</>;
 	}
