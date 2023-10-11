@@ -78,23 +78,31 @@ const SUseCoords = () => {
 				Geolocation API
 			</p>
 
-			<h3 className={S.SubTitle}>Installation</h3>
-			<div className={S.CodeBox}>
-				<CodeBlock code={installCode} />
-			</div>
+			<section className={S.Section}>
+				<h3 className={S.SubTitle}>Installation</h3>
+				<div className={S.CodeBox}>
+					<CodeBlock code={installCode} />
+				</div>
+			</section>
 
-			<h3 className={S.SubTitle}>Return Values</h3>
-			<Table data={returnData} />
+			<section className={S.Section}>
+				<h3 className={S.SubTitle}>Return Values</h3>
+				<Table data={returnData} />
+			</section>
 
-			<h3 className={S.SubTitle}>Preview</h3>
-			<div className={S.CodeBox}>
-				{files.files && <CodePreview files={files.files} />}
-			</div>
+			<section className={S.Section}>
+				<h3 className={S.SubTitle}>Preview</h3>
+				<div className={S.CodeBox}>
+					{files.files && <CodePreview files={files.files} />}
+				</div>
+			</section>
 
-			<h3 className={S.SubTitle}>Example</h3>
-			<div className={S.CodeBox}>
-				<CodeBlock code={exampleCode} />
-			</div>
+			<section className={S.Section}>
+				<h3 className={S.SubTitle}>Example</h3>
+				<div className={S.CodeBox}>
+					<CodeBlock code={exampleCode} />
+				</div>
+			</section>
 		</>
 	);
 };

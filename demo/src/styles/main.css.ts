@@ -14,14 +14,18 @@ export const MainPara = style({
 	fontSize: '1.4rem',
 });
 
+export const Section = style({
+	maxWidth: '80rem',
+	margin: '2rem 0',
+});
+
 export const SubTitle = style({
 	fontSize: '1.8rem',
 	fontWeight: 500,
-	margin: '2rem 0 1rem',
+	marginBottom: '1rem',
 });
 
 export const CodeBox = style({
-	maxWidth: '80rem',
 	fontSize: '1.4rem',
 	borderRadius: '0.4rem',
 	overflow: 'hidden',
@@ -29,7 +33,6 @@ export const CodeBox = style({
 
 export const Table = style({
 	width: '100%',
-	maxWidth: '80rem',
 	fontSize: '1.4rem',
 	borderCollapse: 'collapse',
 	borderRadius: '0.4rem',
