@@ -1,5 +1,6 @@
 import CodeBlock from '../components/CodeBlock';
 import CodePreview from '../components/CodePreview';
+import Table from '../components/Table';
 import useSandboxFile from '../hooks/useSandboxFile';
 import * as S from '../styles/main.css';
 
@@ -34,6 +35,39 @@ function App() {
 
 const sandboxId = 'usecoords-ex-psy5d9';
 
+const returnData = [
+	{
+		Name: 'loading',
+		Type: 'Boolean',
+		Default: 'false',
+		Description: 'A boolean representing if the Geolocation API loading.',
+	},
+	{
+		Name: 'coords',
+		Type: 'Object',
+		Default: 'null',
+		Description: 'This has latitude and longitude information.',
+	},
+	{
+		Name: 'error',
+		Type: 'Object',
+		Default: 'null',
+		Description: `An object representing error code and error message. If you want the error code's meaning, get information from 
+		<a
+			href='https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError'
+			target='_blank'
+		>
+			here
+		</a>.`,
+	},
+	{
+		Name: 'getPosition',
+		Type: 'Function',
+		Default: 'null',
+		Description: `Function wrapped around the Geolocation API's getCurrentPosition function logic.`,
+	},
+];
+
 const SUseCoords = () => {
 	const files = useSandboxFile(sandboxId);
 
@@ -50,60 +84,7 @@ const SUseCoords = () => {
 			</div>
 
 			<h3 className={S.SubTitle}>Return Values</h3>
-
-			<table className={S.Table}>
-				<thead>
-					<tr className={S.Thead}>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Default</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr className={S.TbodyRow}>
-						<td className={S.TbodyData}>loading</td>
-						<td className={S.TbodyData}>Boolean</td>
-						<td className={S.TbodyData}>false</td>
-						<td className={S.TbodyData}>
-							A boolean representing if the Geolocation API loading.
-						</td>
-					</tr>
-					<tr className={S.TbodyRow}>
-						<td className={S.TbodyData}>coords</td>
-						<td className={S.TbodyData}>Object</td>
-						<td className={S.TbodyData}>null</td>
-						<td className={S.TbodyData}>
-							This has latitude and longitude information.
-						</td>
-					</tr>
-					<tr className={S.TbodyRow}>
-						<td className={S.TbodyData}>error</td>
-						<td className={S.TbodyData}>Object</td>
-						<td className={S.TbodyData}>null</td>
-						<td className={S.TbodyData}>
-							An object representing error code and error message. If you want
-							the error code's meaning, get information from{' '}
-							<a
-								href='https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError'
-								target='_blank'
-							>
-								here
-							</a>
-							.
-						</td>
-					</tr>
-					<tr className={S.TbodyRow}>
-						<td className={S.TbodyData}>getPosition</td>
-						<td className={S.TbodyData}>Function</td>
-						<td className={S.TbodyData}>null</td>
-						<td className={S.TbodyData}>
-							Function wrapped around the Geolocation API's getCurrentPosition
-							function logic.
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<Table data={returnData} />
 
 			<h3 className={S.SubTitle}>Preview</h3>
 			<div className={S.CodeBox}>
