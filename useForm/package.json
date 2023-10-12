@@ -1,6 +1,6 @@
 {
 	"name": "@su-hooks/use-form",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"description": "Custom React hook to use form with input validator",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
