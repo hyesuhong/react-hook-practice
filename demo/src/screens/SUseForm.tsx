@@ -1,52 +1,12 @@
+import { useEffect, useState } from 'react';
+import CodePreview from '../components/CodePreview';
 import CodeBlock from '../components/CodeBlock';
 import Table from '../components/Table';
+import useSandboxFile from '../hooks/useSandboxFile';
 import * as S from '../styles/main.css';
 
 const installCode = `~~~shell
 npm i @su-hooks/use-form
-~~~`;
-
-const exampleCode = `~~~tsx
-import useForm, { inputProps } from '@su-hooks/use-form';
-
-export default function App() {
-	const inputs: inputProps = {
-		email: {
-			value: initialValue,
-			validator: (value) => value.indexOf('@') > -1,
-		},
-		password: { value: initialValue, validator: (value) => value.length > 7 },
-	};
-
-	const submitHandler = () => {
-		// do something...
-	};
-
-	const { form, handleChange, handleSubmit, isFormValid } = useForm({
-		inputs,
-		submitHandler,
-	});
-
-	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type='email'
-				name='email'
-				value={form.email.value}
-				onChange={handleChange}
-				required
-			/>
-			<InputField
-				type='password'
-				name='password'
-				value={form.password.value}
-				onChange={handleChange}
-				required
-			/>
-			<button disabled={!isFormValid}>Submit</button>
-		</form>
-	);
-}
 ~~~`;
 
 const parameterData = [
@@ -82,7 +42,18 @@ const returnData = [
 	},
 ];
 
+const sandboxId = 'useform-ex-p6v9fw';
+
 const SUseForm = () => {
+	const { files } = useSandboxFile(sandboxId);
+	const [exampleCode, setExampleCode] = useState(['~~~tsx', '~~~']);
+
+	useEffect(() => {
+		if (files && exampleCode.length < 3) {
+			setExampleCode((prev) => [prev[0], files['/src/App.tsx'].code, prev[1]]);
+		}
+	}, [files]);
+
 	return (
 		<>
 			<p className={S.MainPara}>
@@ -106,12 +77,23 @@ const SUseForm = () => {
 				<Table data={returnData} />
 			</section>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Example</h3>
-				<div className={S.CodeBox}>
-					<CodeBlock code={exampleCode} />
-				</div>
-			</section>
+			{files && (
+				<>
+					<section className={S.Section}>
+						<h3 className={S.SubTitle}>Preview</h3>
+						<div className={S.CodeBox} style={{ height: 250 }}>
+							<CodePreview files={files} />
+						</div>
+					</section>
+
+					<section className={S.Section}>
+						<h3 className={S.SubTitle}>Example</h3>
+						<div className={S.CodeBox}>
+							<CodeBlock code={exampleCode.join('\n')} />
+						</div>
+					</section>
+				</>
+			)}
 		</>
 	);
 };
