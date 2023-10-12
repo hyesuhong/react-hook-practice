@@ -4,16 +4,33 @@ import {
 	oneDark,
 	oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import * as S from '../styles/main.css';
+import IcoCopy from '../assets/ico-copy.svg?react';
 
 interface codeBlock {
 	code: string;
+	copyable?: boolean;
 }
 
 // TODO: Create a theme switch, then apply the theme
 const theme = 'light';
 const syntaxStyle = theme === 'light' ? oneLight : oneDark;
 
-const CodeBlock = ({ code }: codeBlock) => {
+const CodeBlock = ({ code, copyable = true }: codeBlock) => {
+	const onClick = () => {
+		const regex = /(~{3}[a-z]*)/gi;
+		const onlyCode = code.replace(regex, '');
+
+		navigator.clipboard
+			.writeText(onlyCode)
+			.then(() => {
+				//
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
+
 	return (
 		<>
 			<Markdown
@@ -38,6 +55,12 @@ const CodeBlock = ({ code }: codeBlock) => {
 			>
 				{code}
 			</Markdown>
+
+			{copyable && (
+				<button className={S.CopyBtn} onClick={onClick}>
+					<IcoCopy className={S.CopyIcon} />
+				</button>
+			)}
 		</>
 	);
 };

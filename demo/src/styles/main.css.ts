@@ -26,9 +26,48 @@ export const SubTitle = style({
 });
 
 export const CodeBox = style({
+	position: 'relative',
 	fontSize: '1.4rem',
 	borderRadius: '0.4rem',
 	overflow: 'hidden',
+});
+
+export const CopyBtn = style({
+	position: 'absolute',
+	top: '1.8rem',
+	right: '1rem',
+	width: '3rem',
+	height: '3rem',
+
+	background: 'transparent',
+	border: 'none',
+
+	selectors: {
+		[`${CodeBox} > &`]: {
+			opacity: 0,
+			visibility: 'hidden',
+
+			transition: 'all 0.2s',
+		},
+		[`${CodeBox}:hover > &`]: {
+			visibility: 'visible',
+			opacity: 0.5,
+		},
+		[`${CodeBox} > &:hover`]: {
+			opacity: 1,
+		},
+	},
+});
+
+export const CopyIcon = style({
+	width: '80%',
+	height: '80%',
+
+	selectors: {
+		[`${CopyBtn} > &`]: {
+			fill: '#333',
+		},
+	},
 });
 
 export const Table = style({
