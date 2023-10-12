@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import CodeBlock from '../components/CodeBlock';
 import CodePreview from '../components/CodePreview';
 import Table from '../components/Table';
@@ -7,31 +8,6 @@ import * as S from '../styles/main.css';
 const installCode = `~~~shell
 npm i @su-hooks/use-coords
 ~~~`;
-
-const exampleCode = `~~~tsx
-import React from "react";
-import useCoords from "@su-hooks/use-coords";
-
-function App() {
-	const {coords, loading, error, getPosition} = useCoords();
-
-	return (<div>
-		<button onClick={getPosition}>Click Me!</button>
-		<p>
-			{loading ? 'loading...' : 'done!'}
-		</p>
-		{coords && (
-			<p>lat: {coords.latitude}</p>
-			<p>lon: {coords.longitude}</p>
-		)}
-		{error && (
-			<p>error code: {error.code}</p>
-			<p>error message: {error.message}</p>
-		)}
-	</div>)
-}
-~~~
-`;
 
 const sandboxId = 'usecoords-ex-psy5d9';
 
@@ -69,7 +45,14 @@ const returnData = [
 ];
 
 const SUseCoords = () => {
-	const files = useSandboxFile(sandboxId);
+	const { files } = useSandboxFile(sandboxId);
+	const [exampleCode, setExampleCode] = useState(['~~~tsx', '~~~']);
+
+	useEffect(() => {
+		if (files && exampleCode.length < 3) {
+			setExampleCode((prev) => [prev[0], files['/src/App.tsx'].code, prev[1]]);
+		}
+	}, [files]);
 
 	return (
 		<>
@@ -90,19 +73,23 @@ const SUseCoords = () => {
 				<Table data={returnData} />
 			</section>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Preview</h3>
-				<div className={S.CodeBox}>
-					{files.files && <CodePreview files={files.files} />}
-				</div>
-			</section>
+			{files && (
+				<>
+					<section className={S.Section}>
+						<h3 className={S.SubTitle}>Preview</h3>
+						<div className={S.CodeBox} style={{ height: 250 }}>
+							<CodePreview files={files} />
+						</div>
+					</section>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Example</h3>
-				<div className={S.CodeBox}>
-					<CodeBlock code={exampleCode} />
-				</div>
-			</section>
+					<section className={S.Section}>
+						<h3 className={S.SubTitle}>Example</h3>
+						<div className={S.CodeBox}>
+							<CodeBlock code={exampleCode.join('\n')} />
+						</div>
+					</section>
+				</>
+			)}
 		</>
 	);
 };
