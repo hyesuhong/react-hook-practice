@@ -34,10 +34,12 @@ const SUseCoords = () => {
 				</div>
 			</section>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Return Values</h3>
-				<Table data={returns} />
-			</section>
+			{returns && (
+				<section className={S.Section}>
+					<h3 className={S.SubTitle}>Return Values</h3>
+					<Table {...returns} />
+				</section>
+			)}
 
 			{files && (
 				<>

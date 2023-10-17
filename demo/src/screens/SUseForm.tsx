@@ -33,15 +33,19 @@ const SUseForm = () => {
 				</div>
 			</section>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Parameters</h3>
-				<Table data={parameters} />
-			</section>
+			{parameters && (
+				<section className={S.Section}>
+					<h3 className={S.SubTitle}>Parameters</h3>
+					<Table {...parameters} />
+				</section>
+			)}
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Returns</h3>
-				<Table data={returns} />
-			</section>
+			{returns && (
+				<section className={S.Section}>
+					<h3 className={S.SubTitle}>Returns</h3>
+					<Table {...returns} />
+				</section>
+			)}
 
 			{files && (
 				<>

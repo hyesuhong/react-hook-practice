@@ -45,5 +45,11 @@ export const TbodyData = style({
 		[`${TbodyRow} > &`]: {
 			padding: '0.5rem',
 		},
+		['&[data-align="center"]']: {
+			justifyContent: 'center',
+		},
+		['&[data-align="right"]']: {
+			justifyContent: 'end',
+		},
 	},
 });
