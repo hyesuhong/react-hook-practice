@@ -1,23 +1,21 @@
+type tableHeader = {
+	name: string;
+	type?: 'string' | 'number' | 'boolean';
+	align?: 'left' | 'center' | 'right';
+	size?: number;
+};
+type tableData = { [key: string]: string | boolean };
+type table = {
+	headers: tableHeader[];
+	data: tableData[];
+};
+
 interface data {
 	[key: string]: {
 		installCode: string;
 		sandboxId: string;
-		returns?: {
-			headers: {
-				name: string;
-				type?: 'string' | 'number' | 'boolean';
-				align?: 'left' | 'center' | 'right';
-			}[];
-			data: { [key: string]: string | boolean }[];
-		};
-		parameters?: {
-			headers: {
-				name: string;
-				type?: 'string' | 'number' | 'boolean';
-				align?: 'left' | 'center' | 'right';
-			}[];
-			data: { [key: string]: string | boolean }[];
-		};
+		returns?: table;
+		parameters?: table;
 	};
 }
 
@@ -30,7 +28,7 @@ export const hookData: data = {
 				{ name: 'name' },
 				{ name: 'type' },
 				{ name: 'default' },
-				{ name: 'description' },
+				{ name: 'description', size: 3 },
 			],
 			data: [
 				{
@@ -75,7 +73,7 @@ export const hookData: data = {
 				{ name: 'type' },
 				{ name: 'required', type: 'boolean', align: 'center' },
 
-				{ name: 'default' },
+				{ name: 'default', size: 3 },
 			],
 			data: [
 				{
@@ -105,7 +103,11 @@ export const hookData: data = {
 			],
 		},
 		returns: {
-			headers: [{ name: 'name' }, { name: 'type' }, { name: 'description' }],
+			headers: [
+				{ name: 'name' },
+				{ name: 'type' },
+				{ name: 'description', size: 2 },
+			],
 			data: [
 				{
 					name: 'ref',
@@ -123,7 +125,7 @@ export const hookData: data = {
 				{ name: 'name' },
 				{ name: 'type' },
 				{ name: 'required', type: 'boolean', align: 'center' },
-				{ name: 'default' },
+				{ name: 'default', align: 'center' },
 			],
 			data: [
 				{
@@ -141,7 +143,11 @@ export const hookData: data = {
 			],
 		},
 		returns: {
-			headers: [{ name: 'name' }, { name: 'type' }, { name: 'description' }],
+			headers: [
+				{ name: 'name' },
+				{ name: 'type' },
+				{ name: 'description', size: 2 },
+			],
 			data: [
 				{
 					name: 'form',

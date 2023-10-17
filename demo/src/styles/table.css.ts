@@ -19,6 +19,7 @@ export const TheadData = style({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',
+	textTransform: 'capitalize',
 });
 
 export const Tbody = style({});
@@ -43,7 +44,7 @@ export const TbodyData = style({
 
 	selectors: {
 		[`${TbodyRow} > &`]: {
-			padding: '0.5rem',
+			padding: '0.5rem 1rem',
 		},
 		['&[data-align="center"]']: {
 			justifyContent: 'center',
