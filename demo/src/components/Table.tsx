@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import * as S from '../styles/main.css';
+import * as S from '../styles/table.css';
 
 type tableData = { [key: string]: string };
 interface table {
@@ -16,28 +16,28 @@ const Table = ({ data }: table) => {
 
 	return (
 		<>
-			<table className={S.Table}>
-				<thead>
-					<tr className={S.Thead}>
-						{headers.map((header, index) => (
-							<th key={index}>{header}</th>
-						))}
-					</tr>
-				</thead>
-				<tbody>
+			<div className={S.Table}>
+				<div className={S.Thead}>
+					{headers.map((header, index) => (
+						<div key={index} className={S.TheadData}>
+							{header}
+						</div>
+					))}
+				</div>
+				<div className={S.Tbody}>
 					{data.map((data, index) => (
-						<tr className={S.TbodyRow} key={index}>
+						<div className={S.TbodyRow} key={index}>
 							{Object.values(data).map((d, idx) => (
-								<td
+								<div
 									className={S.TbodyData}
 									key={idx}
 									dangerouslySetInnerHTML={{ __html: d }}
-								></td>
+								></div>
 							))}
-						</tr>
+						</div>
 					))}
-				</tbody>
-			</table>
+				</div>
+			</div>
 		</>
 	);
 };
