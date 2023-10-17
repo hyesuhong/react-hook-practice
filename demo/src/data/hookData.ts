@@ -66,14 +66,14 @@ export const hookData: data = {
 	},
 	useIntersection: {
 		installCode: '~~~shell\nnpm i @su-hooks/use-intersection\n~~~',
-		sandboxId: '',
+		sandboxId: 'fervent-yalow-dk355m',
 		parameters: {
 			headers: [
 				{ name: 'name' },
 				{ name: 'type' },
 				{ name: 'required', type: 'boolean', align: 'center' },
 
-				{ name: 'default', size: 3 },
+				{ name: 'default', size: 2 },
 			],
 			data: [
 				{
