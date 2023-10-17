@@ -3,46 +3,12 @@ import CodeBlock from '../components/CodeBlock';
 import CodePreview from '../components/CodePreview';
 import Table from '../components/Table';
 import useSandboxFile from '../hooks/useSandboxFile';
+import { hookData } from '../data/hookData';
 import * as S from '../styles/main.css';
 
-const installCode = `~~~shell
-npm i @su-hooks/use-coords
-~~~`;
-
-const sandboxId = 'usecoords-ex-psy5d9';
-
-const returnData = [
-	{
-		Name: 'loading',
-		Type: 'Boolean',
-		Default: 'false',
-		Description: 'A boolean representing if the Geolocation API loading.',
-	},
-	{
-		Name: 'coords',
-		Type: 'Object',
-		Default: 'null',
-		Description: 'This has latitude and longitude information.',
-	},
-	{
-		Name: 'error',
-		Type: 'Object',
-		Default: 'null',
-		Description: `An object representing error code and error message. If you want the error code's meaning, get information from 
-		<a
-			href='https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError'
-			target='_blank'
-		>
-			here
-		</a>.`,
-	},
-	{
-		Name: 'getPosition',
-		Type: 'Function',
-		Default: 'null',
-		Description: `Function wrapped around the Geolocation API's getCurrentPosition function logic.`,
-	},
-];
+const {
+	useCoords: { installCode, sandboxId, returns },
+} = hookData;
 
 const SUseCoords = () => {
 	const { files } = useSandboxFile(sandboxId);
@@ -70,7 +36,7 @@ const SUseCoords = () => {
 
 			<section className={S.Section}>
 				<h3 className={S.SubTitle}>Return Values</h3>
-				<Table data={returnData} />
+				<Table data={returns} />
 			</section>
 
 			{files && (

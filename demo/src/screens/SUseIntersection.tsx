@@ -1,10 +1,11 @@
 import CodeBlock from '../components/CodeBlock';
 import Table from '../components/Table';
+import { hookData } from '../data/hookData';
 import * as S from '../styles/main.css';
 
-const installCode = `~~~shell
-npm i @su-hooks/use-intersection
-~~~`;
+const {
+	useIntersection: { installCode, parameters, returns },
+} = hookData;
 
 const exampleCode = `~~~tsx
 import react from 'react';
@@ -25,41 +26,6 @@ function App() {
 ~~~
 `;
 
-const parameterData = [
-	{
-		Name: 'root',
-		Type: 'HTMLElement',
-		Required: '✕',
-		Default: `browser's viewport`,
-	},
-	{
-		Name: 'rootMargin',
-		Type: `&lt;string | number&gt;[]`,
-		Required: '✕',
-		Default: '0',
-	},
-	{
-		Name: 'thresholds',
-		Type: 'number | number[]',
-		Required: '✕',
-		Default: '0',
-	},
-	{
-		Name: 'handleIntersection',
-		Type: 'Function',
-		Required: '○',
-		Default: 'null',
-	},
-];
-
-const returnData = [
-	{
-		Name: 'ref',
-		Type: 'RefObject',
-		Description: `Intersection Observer's target`,
-	},
-];
-
 const SUseIntersection = () => {
 	return (
 		<>
@@ -74,12 +40,12 @@ const SUseIntersection = () => {
 
 			<section className={S.Section}>
 				<h3 className={S.SubTitle}>Parameters</h3>
-				<Table data={parameterData} />
+				<Table data={parameters} />
 			</section>
 
 			<section className={S.Section}>
 				<h3 className={S.SubTitle}>Returns</h3>
-				<Table data={returnData} />
+				<Table data={returns} />
 			</section>
 
 			<section className={S.Section}>

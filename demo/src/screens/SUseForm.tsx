@@ -3,46 +3,12 @@ import CodePreview from '../components/CodePreview';
 import CodeBlock from '../components/CodeBlock';
 import Table from '../components/Table';
 import useSandboxFile from '../hooks/useSandboxFile';
+import { hookData } from '../data/hookData';
 import * as S from '../styles/main.css';
 
-const installCode = `~~~shell
-npm i @su-hooks/use-form
-~~~`;
-
-const parameterData = [
-	{
-		Name: 'inputs',
-		Type: 'inputProps',
-		Required: '○',
-		Default: 'null',
-	},
-	{ Name: 'submitHandler', Type: 'Function', Required: '✕', Default: 'null' },
-];
-
-const returnData = [
-	{
-		Name: 'form',
-		Type: 'Object',
-		Description: `input's information(value, validation)`,
-	},
-	{
-		Name: 'handleChange',
-		Type: 'ChangeEvent',
-		Description: `input change event`,
-	},
-	{
-		Name: 'handleSubmit',
-		Type: 'SubmitEvent',
-		Description: `form submit event`,
-	},
-	{
-		Name: 'isFormValid',
-		Type: 'Boolean',
-		Description: `form validation`,
-	},
-];
-
-const sandboxId = 'useform-ex-p6v9fw';
+const {
+	useForm: { installCode, sandboxId, parameters, returns },
+} = hookData;
 
 const SUseForm = () => {
 	const { files } = useSandboxFile(sandboxId);
@@ -69,12 +35,12 @@ const SUseForm = () => {
 
 			<section className={S.Section}>
 				<h3 className={S.SubTitle}>Parameters</h3>
-				<Table data={parameterData} />
+				<Table data={parameters} />
 			</section>
 
 			<section className={S.Section}>
 				<h3 className={S.SubTitle}>Returns</h3>
-				<Table data={returnData} />
+				<Table data={returns} />
 			</section>
 
 			{files && (
