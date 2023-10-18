@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import CodePreview from '../components/CodePreview';
-import CodeBlock from '../components/CodeBlock';
+import CodePreview from '../components/code/CodePreview';
+import CodeBlock from '../components/code/CodeBlock';
 import Table from '../components/table/Table';
 import useSandboxFile from '../hooks/useSandboxFile';
 import { hookData } from '../data/hookData';

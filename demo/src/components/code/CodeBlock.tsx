@@ -4,8 +4,8 @@ import {
 	oneDark,
 	oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import * as S from '../styles/main.css';
-import IcoCopy from '../assets/ico-copy.svg?react';
+import * as S from '../../styles/main.css';
+import IcoCopy from '../../assets/ico-copy.svg?react';
 
 interface codeBlock {
 	code: string;
