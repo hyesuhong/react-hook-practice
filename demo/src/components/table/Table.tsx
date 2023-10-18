@@ -1,22 +1,20 @@
+import TableProvider, { table } from '../../contexts/TableContext';
 import * as S from '../../styles/table.css';
 import Tbody from './Tbody';
-import Thead, { thead } from './Thead';
+import Thead from './Thead';
 
-type tableData = { [key: string]: string | boolean };
-
-interface table {
-	headers: thead['headers'];
-	data: tableData[];
+interface tableComponent extends Omit<table, 'bodyData' | 'getHeaderInfo'> {
+	data: table['bodyData'];
 }
 
-const Table = ({ headers, data }: table) => {
+const Table = ({ headers, data }: tableComponent) => {
 	return (
-		<>
+		<TableProvider headers={headers} bodyData={data}>
 			<table className={S.Table}>
-				<Thead headers={headers} />
-				<Tbody headers={headers} bodyData={data} />
+				<Thead />
+				<Tbody />
 			</table>
-		</>
+		</TableProvider>
 	);
 };
 

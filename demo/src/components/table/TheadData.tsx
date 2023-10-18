@@ -1,9 +1,4 @@
-export type cellAlign = 'left' | 'center' | 'right';
-
-export type tableHeader = {
-	name: string;
-	align?: cellAlign;
-};
+import { tableHeader } from '../../contexts/TableContext';
 
 type theadData = {
 	header: tableHeader;

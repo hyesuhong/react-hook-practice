@@ -1,14 +1,13 @@
-import TbodyData, { data } from './TbodyData';
-import { cellAlign, tableHeader } from './TheadData';
+import { tableData, useTable } from '../../contexts/TableContext';
 import * as S from '../../styles/table.css';
+import TbodyData from './TbodyData';
 
-type tableData = { [key: string]: data };
 export interface tbodyRow {
-	headers: tableHeader[];
 	data: tableData;
 }
 
-const TbodyRow = ({ headers, data }: tbodyRow) => {
+const TbodyRow = ({ data }: tbodyRow) => {
+	const { headers, getHeaderInfo } = useTable();
 	return (
 		<>
 			<tr className={S.TbodyRow}>
@@ -19,26 +18,6 @@ const TbodyRow = ({ headers, data }: tbodyRow) => {
 			</tr>
 		</>
 	);
-};
-
-type getheaderinfo = (
-	headers: tableHeader[],
-	targetName: string
-) => { cellAlign: cellAlign };
-
-const getHeaderInfo: getheaderinfo = (
-	headers: tableHeader[],
-	targetName: string
-) => {
-	const regExp = new RegExp(targetName, 'gi');
-	const header = headers.find(({ name }) => name.match(regExp));
-
-	if (!header) {
-		return { cellAlign: 'left' };
-	}
-
-	const cellAlign = header.align || 'left';
-	return { cellAlign };
 };
 
 export default TbodyRow;

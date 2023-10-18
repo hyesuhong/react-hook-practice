@@ -1,16 +1,13 @@
-import TbodyRow, { tbodyRow } from './TbodyRow';
+import { useTable } from '../../contexts/TableContext';
+import TbodyRow from './TbodyRow';
 
-interface tbody {
-	headers: tbodyRow['headers'];
-	bodyData: tbodyRow['data'][];
-}
-
-const Tbody = ({ headers, bodyData }: tbody) => {
+const Tbody = () => {
+	const { bodyData } = useTable();
 	return (
 		<>
 			<tbody>
 				{bodyData.map((data, index) => (
-					<TbodyRow headers={headers} data={data} key={index} />
+					<TbodyRow data={data} key={index} />
 				))}
 			</tbody>
 		</>

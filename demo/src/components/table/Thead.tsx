@@ -1,11 +1,9 @@
+import { useTable } from '../../contexts/TableContext';
 import * as S from '../../styles/table.css';
-import TheadData, { tableHeader } from './TheadData';
+import TheadData from './TheadData';
 
-export type thead = {
-	headers: tableHeader[];
-};
-
-const Thead = ({ headers }: thead) => {
+const Thead = () => {
+	const { headers } = useTable();
 	return (
 		<>
 			<thead className={S.Thead}>

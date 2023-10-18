@@ -1,9 +1,8 @@
-import { cellAlign } from './TheadData';
+import { cellAlign, cellData } from '../../contexts/TableContext';
 import * as S from '../../styles/table.css';
 
-export type data = string | number | boolean;
 type tbodyData = {
-	data: data;
+	data: cellData;
 	align?: cellAlign;
 };
 
