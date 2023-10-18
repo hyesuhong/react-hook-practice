@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import CodePreview from '../components/CodePreview';
 import CodeBlock from '../components/CodeBlock';
-import Table from '../components/Table';
+import Table from '../components/table/Table';
 import useSandboxFile from '../hooks/useSandboxFile';
 import { hookData } from '../data/hookData';
 import * as S from '../styles/main.css';

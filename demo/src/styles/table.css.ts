@@ -3,30 +3,18 @@ import { style } from '@vanilla-extract/css';
 export const Table = style({
 	width: '100%',
 	fontSize: '1.4rem',
+	borderCollapse: 'collapse',
 	borderRadius: '0.4rem',
 	overflow: 'hidden',
 });
 
 export const Thead = style({
-	display: 'flex',
 	fontWeight: 500,
 	background: '#eee',
 	height: '3.2rem',
 });
 
-export const TheadData = style({
-	flex: 1,
-	display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
-	textTransform: 'capitalize',
-});
-
-export const Tbody = style({});
-
 export const TbodyRow = style({
-	display: 'flex',
-	minHeight: '3.2rem',
 	borderBottom: '1px solid #eee',
 	selectors: {
 		'&:last-child': {
@@ -36,21 +24,17 @@ export const TbodyRow = style({
 });
 
 export const TbodyData = style({
-	flex: 1,
-
-	display: 'flex',
-	justifyContent: 'start',
-	alignItems: 'center',
-
 	selectors: {
 		[`${TbodyRow} > &`]: {
 			padding: '0.5rem 1rem',
 		},
 		['&[data-align="center"]']: {
-			justifyContent: 'center',
+			// justifyContent: 'center',
+			textAlign: 'center',
 		},
 		['&[data-align="right"]']: {
-			justifyContent: 'end',
+			// justifyContent: 'end',
+			textAlign: 'right',
 		},
 	},
 });
