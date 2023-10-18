@@ -1,4 +1,5 @@
 import { tableHeader } from '../../contexts/TableContext';
+import * as S from '../../styles/table.css';
 
 type theadData = {
 	header: tableHeader;
@@ -6,7 +7,7 @@ type theadData = {
 
 const TheadData = ({ header }: theadData) => {
 	const { name } = header;
-	return <th>{name}</th>;
+	return <th className={S.Thead}>{name}</th>;
 };
 
 export default TheadData;

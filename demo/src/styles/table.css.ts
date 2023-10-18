@@ -12,6 +12,7 @@ export const Thead = style({
 	fontWeight: 500,
 	background: '#eee',
 	height: '3.2rem',
+	textTransform: 'capitalize',
 });
 
 export const TbodyRow = style({
