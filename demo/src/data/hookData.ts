@@ -47,13 +47,7 @@ export const hookData: data = {
 					name: 'error',
 					type: 'Object',
 					default: 'null',
-					description: `An object representing error code and error message. If you want the error code's meaning, get information from 
-				<a
-					href='https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError'
-					target='_blank'
-				>
-					here
-				</a>.`,
+					description: `An object representing error code and error message. If you want the error code's meaning, get information from <a href='https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError' target='_blank'>here</a>.`,
 				},
 				{
 					name: 'getPosition',

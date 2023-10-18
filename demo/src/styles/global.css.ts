@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
+import { Wrapper } from './main.css';
 
 globalStyle('*', {
 	margin: 0,
@@ -33,4 +34,29 @@ globalStyle('#root', {
 	display: 'grid',
 	gridTemplateColumns: 'max-content 1fr',
 	gridTemplateRows: 'minmax(100vh,max-content)',
+});
+
+globalStyle(`${Wrapper} a`, {
+	position: 'relative',
+	color: '#999',
+	transition: 'color 0.2s',
+});
+
+globalStyle(`${Wrapper} a::after`, {
+	content: '',
+	position: 'absolute',
+	bottom: 0,
+	left: 0,
+	width: '0',
+	height: '1px',
+	background: '#21B2E4',
+	transition: 'width 0.2s',
+});
+
+globalStyle(`${Wrapper} a:hover`, {
+	color: '#21B2E4',
+});
+
+globalStyle(`${Wrapper} a:hover::after`, {
+	width: '100%',
 });
