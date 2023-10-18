@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Section from '../components/Section';
 import CodePreview from '../components/code/CodePreview';
 import CodeBlock from '../components/code/CodeBlock';
 import Table from '../components/table/Table';
@@ -26,42 +27,31 @@ const SUseForm = () => {
 				Custom React hook to use form with input validator
 			</p>
 
-			<section className={S.Section}>
-				<h3 className={S.SubTitle}>Installation</h3>
-				<div className={S.CodeBox}>
-					<CodeBlock code={installCode} />
-				</div>
-			</section>
+			<Section title='Installation'>
+				<CodeBlock code={installCode} />
+			</Section>
 
 			{parameters && (
-				<section className={S.Section}>
-					<h3 className={S.SubTitle}>Parameters</h3>
+				<Section title='Parameters'>
 					<Table {...parameters} />
-				</section>
+				</Section>
 			)}
 
 			{returns && (
-				<section className={S.Section}>
-					<h3 className={S.SubTitle}>Returns</h3>
+				<Section title='Returns'>
 					<Table {...returns} />
-				</section>
+				</Section>
 			)}
 
 			{files && (
 				<>
-					<section className={S.Section}>
-						<h3 className={S.SubTitle}>Preview</h3>
-						<div className={S.CodeBox} style={{ height: 250 }}>
-							<CodePreview files={files} />
-						</div>
-					</section>
+					<Section title='Preview'>
+						<CodePreview files={files} />
+					</Section>
 
-					<section className={S.Section}>
-						<h3 className={S.SubTitle}>Example</h3>
-						<div className={S.CodeBox}>
-							<CodeBlock code={exampleCode.join('\n')} />
-						</div>
-					</section>
+					<Section title='Example'>
+						<CodeBlock code={exampleCode.join('\n')} />
+					</Section>
 				</>
 			)}
 		</>
