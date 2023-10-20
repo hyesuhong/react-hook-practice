@@ -27,9 +27,17 @@ const themeReducer = (prevState: theme, action: themeAction) => {
 	console.log(prevState, action);
 	switch (action.type) {
 		case 'CHANGE':
+			themeChangeHandler(action.nextTheme);
 			return action.nextTheme;
 		default:
 			throw Error('Unknown action: ' + action.type);
+	}
+};
+
+const themeChangeHandler = (theme: theme) => {
+	document.documentElement.classList.remove('light', 'dark');
+	if (theme !== 'system') {
+		document.documentElement.classList.add(theme);
 	}
 };
 

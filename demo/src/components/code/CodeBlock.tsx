@@ -14,7 +14,6 @@ interface codeBlock {
 	copyable?: boolean;
 }
 
-// TODO: Create a theme switch, then apply the theme
 type getSyntaxStyle = (theme: theme) => { [key: string]: CSSProperties };
 const getSyntaxStyle: getSyntaxStyle = (theme: theme) => {
 	switch (theme) {
@@ -27,7 +26,7 @@ const getSyntaxStyle: getSyntaxStyle = (theme: theme) => {
 
 const CodeBlock = ({ code, copyable = true }: codeBlock) => {
 	const theme = useTheme();
-	console.log(theme);
+
 	const onClick = () => {
 		const regex = /(~{3}[a-z]*)/gi;
 		const onlyCode = code.replace(regex, '');
