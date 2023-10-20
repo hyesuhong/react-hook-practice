@@ -1,19 +1,32 @@
 import * as S from '../styles/sideBar.css';
 import { useMenu, useMenuDispatch } from '../contexts/MenuContext';
+import { useTheme, useThemeDispatch } from '../contexts/ThemeContext';
 import IcoGithub from '../assets/ico-github.svg?react';
+import ThemeBtn from './theme/Themebtn';
 
 const SideBar = () => {
 	const { menu, current } = useMenu();
-	const dispatch = useMenuDispatch();
+	const menuDispatch = useMenuDispatch();
 	const onTitleClick = () => {
-		dispatch && dispatch({ type: 'RESET' });
+		menuDispatch && menuDispatch({ type: 'RESET' });
 	};
 	const onMenuClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		const {
 			currentTarget: { textContent },
 		} = e;
 
-		dispatch && dispatch({ type: 'CHANGE', selected: textContent || '' });
+		menuDispatch &&
+			menuDispatch({ type: 'CHANGE', selected: textContent || '' });
+	};
+
+	const { theme, system } = useTheme();
+	const themeDispatch = useThemeDispatch();
+	const onButtonClick = () => {
+		themeDispatch &&
+			themeDispatch({
+				type: 'CHANGE',
+				nextTheme: theme === 'light' ? 'dark' : 'light',
+			});
 	};
 
 	return (
@@ -39,6 +52,9 @@ const SideBar = () => {
 					<a href='https://github.com/hyesuhong/su-hooks' target='_blank'>
 						<IcoGithub className={S.Icon} />
 					</a>
+				</li>
+				<li>
+					<ThemeBtn onClick={onButtonClick} theme={theme} system={system} />
 				</li>
 			</ol>
 		</aside>

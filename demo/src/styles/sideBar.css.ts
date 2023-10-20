@@ -45,10 +45,10 @@ export const sideBarList = style({
 			zIndex: -1,
 		},
 		'&:hover::before': {
-			opacity: 0.3,
+			opacity: 0.5,
 		},
 		'&.selected::before': {
-			opacity: 0.5,
+			opacity: 1,
 		},
 		'&.selected::after': {
 			content: '',
@@ -63,12 +63,21 @@ export const sideBarList = style({
 
 export const LinkList = style({
 	display: 'flex',
+	justifyContent: 'space-between',
 	alignItems: 'center',
 	padding: '0 1rem',
+	gap: '1rem',
 });
 
 export const Icon = style({
 	width: '3.2rem',
 	height: '3.2rem',
 	fill: themeVars.color.text,
+});
+
+export const ThemeBtn = style({
+	background: 'transparent',
+	color: 'inherit',
+	border: 'none',
+	verticalAlign: 'middle',
 });
