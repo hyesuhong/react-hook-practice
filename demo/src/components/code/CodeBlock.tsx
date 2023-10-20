@@ -1,11 +1,11 @@
-import { CSSProperties } from 'react';
+import { useCallback } from 'react';
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
 	oneDark,
 	oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { systemTheme, theme, useTheme } from '../../contexts/ThemeContext';
+import { theme, useTheme } from '../../contexts/ThemeContext';
 import * as S from '../../styles/code.css';
 import IcoCopy from '../../assets/ico-copy.svg?react';
 
@@ -14,18 +14,20 @@ interface codeBlock {
 	copyable?: boolean;
 }
 
-type getSyntaxStyle = (theme: theme) => { [key: string]: CSSProperties };
-const getSyntaxStyle: getSyntaxStyle = (theme: theme) => {
-	switch (theme) {
-		case 'system':
-			return getSyntaxStyle(systemTheme);
-		default:
-			return theme === 'light' ? oneLight : oneDark;
-	}
-};
-
 const CodeBlock = ({ code, copyable = true }: codeBlock) => {
-	const theme = useTheme();
+	const { theme, system } = useTheme();
+
+	const getSyntaxStyle = useCallback(
+		(theme: theme) => {
+			switch (theme) {
+				case 'system':
+					return getSyntaxStyle(system);
+				default:
+					return theme === 'light' ? oneLight : oneDark;
+			}
+		},
+		[theme]
+	);
 
 	const onClick = () => {
 		const regex = /(~{3}[a-z]*)/gi;

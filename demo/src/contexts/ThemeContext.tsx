@@ -8,6 +8,12 @@ import {
 
 export type theme = 'light' | 'dark' | 'system';
 
+interface themeContext {
+	theme: theme;
+	system: theme;
+	// system: Omit<theme, 'system'>;
+}
+
 interface themeProvider {
 	children: ReactNode;
 }
@@ -18,17 +24,22 @@ type themeAction = {
 };
 
 const systemThemeIsDark = matchMedia('(prefers-color-scheme: dark)');
-export const systemTheme = systemThemeIsDark.matches ? 'dark' : 'light';
+const systemTheme = systemThemeIsDark.matches ? 'dark' : 'light';
 
-const ThemeContext = createContext<theme>(systemTheme);
+const initialTheme: themeContext = {
+	theme: 'system',
+	system: systemTheme,
+};
+
+const ThemeContext = createContext<themeContext>(initialTheme);
 const ThemeDispatchContext = createContext<Dispatch<themeAction> | null>(null);
 
-const themeReducer = (prevState: theme, action: themeAction) => {
+const themeReducer = (prevState: themeContext, action: themeAction) => {
 	console.log(prevState, action);
 	switch (action.type) {
 		case 'CHANGE':
 			themeChangeHandler(action.nextTheme);
-			return action.nextTheme;
+			return { ...prevState, theme: action.nextTheme };
 		default:
 			throw Error('Unknown action: ' + action.type);
 	}
@@ -42,7 +53,7 @@ const themeChangeHandler = (theme: theme) => {
 };
 
 const ThemeProvider = ({ children }: themeProvider) => {
-	const [theme, dispatch] = useReducer(themeReducer, systemTheme);
+	const [theme, dispatch] = useReducer(themeReducer, initialTheme);
 
 	return (
 		<ThemeContext.Provider value={theme}>
