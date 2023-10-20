@@ -1,5 +1,6 @@
-import { globalStyle } from '@vanilla-extract/css';
+import { assignVars, globalStyle } from '@vanilla-extract/css';
 import { Wrapper } from './main.css';
+import { darkTheme, lightTheme, themeVars } from './theme.css';
 
 globalStyle('*', {
 	margin: 0,
@@ -11,6 +12,12 @@ globalStyle(':root', {
 	fontFamily:
 		'Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;',
 	fontSize: 10,
+	'@media': {
+		'(prefers-color-scheme: light)': {
+			vars: assignVars(themeVars, lightTheme),
+		},
+		'(prefers-color-scheme: dark)': { vars: assignVars(themeVars, darkTheme) },
+	},
 });
 
 globalStyle('a', {
@@ -34,11 +41,12 @@ globalStyle('#root', {
 	display: 'grid',
 	gridTemplateColumns: 'max-content 1fr',
 	gridTemplateRows: 'minmax(100vh,max-content)',
+	background: themeVars.color.background,
 });
 
 globalStyle(`${Wrapper} a`, {
 	position: 'relative',
-	color: '#999',
+	color: themeVars.color.grey.dark,
 	transition: 'color 0.2s',
 });
 
@@ -49,12 +57,12 @@ globalStyle(`${Wrapper} a::after`, {
 	left: 0,
 	width: '0',
 	height: '1px',
-	background: '#21B2E4',
+	background: themeVars.color.blue.sky,
 	transition: 'width 0.2s',
 });
 
 globalStyle(`${Wrapper} a:hover`, {
-	color: '#21B2E4',
+	color: themeVars.color.blue.sky,
 });
 
 globalStyle(`${Wrapper} a:hover::after`, {
