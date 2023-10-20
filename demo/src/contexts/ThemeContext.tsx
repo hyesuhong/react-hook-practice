@@ -17,8 +17,8 @@ type themeAction = {
 	nextTheme: theme;
 };
 
-const systemThemeIsDark = matchMedia('prefers-color-scheme: dark');
-const systemTheme = systemThemeIsDark.matches ? 'dark' : 'light';
+const systemThemeIsDark = matchMedia('(prefers-color-scheme: dark)');
+export const systemTheme = systemThemeIsDark.matches ? 'dark' : 'light';
 
 const ThemeContext = createContext<theme>(systemTheme);
 const ThemeDispatchContext = createContext<Dispatch<themeAction> | null>(null);
