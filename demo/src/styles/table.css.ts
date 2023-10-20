@@ -17,7 +17,7 @@ export const Thead = style({
 });
 
 export const TbodyRow = style({
-	borderBottom: '1px solid #eee',
+	borderBottom: `1px solid ${themeVars.color.grey}`,
 	selectors: {
 		'&:last-child': {
 			borderBottom: 'none',

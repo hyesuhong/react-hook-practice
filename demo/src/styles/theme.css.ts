@@ -6,11 +6,13 @@ import {
 const toTitleCase = (s: string) => `${s.charAt(0).toUpperCase()}${s.slice(1)}`;
 
 const colorVars = {
-	black: '#333',
-	white: '#F2F2F2',
+	black: '#333333',
+	white: '#ffffff',
 	grey: {
-		dark: '#999',
-		light: '#eee',
+		dark: '#444444',
+		// dark: '#292d37',
+		light: '#eeeeee',
+		// light: '#fafafa',
 	},
 	skyBlue: '#21B2E4',
 };
