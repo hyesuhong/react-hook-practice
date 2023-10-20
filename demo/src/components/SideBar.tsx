@@ -2,7 +2,7 @@ import * as S from '../styles/sideBar.css';
 import { useMenu, useMenuDispatch } from '../contexts/MenuContext';
 import { useTheme, useThemeDispatch } from '../contexts/ThemeContext';
 import IcoGithub from '../assets/ico-github.svg?react';
-import ThemeBtn from './theme/Themebtn';
+import ThemeBtn from './theme/ThemeBtn';
 
 const SideBar = () => {
 	const { menu, current } = useMenu();
