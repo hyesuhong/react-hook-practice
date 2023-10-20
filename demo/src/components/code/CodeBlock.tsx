@@ -1,9 +1,11 @@
+import { CSSProperties } from 'react';
 import Markdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
 	oneDark,
 	oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { systemTheme, theme, useTheme } from '../../contexts/ThemeContext';
 import * as S from '../../styles/code.css';
 import IcoCopy from '../../assets/ico-copy.svg?react';
 
@@ -13,10 +15,19 @@ interface codeBlock {
 }
 
 // TODO: Create a theme switch, then apply the theme
-const theme = 'light';
-const syntaxStyle = theme === 'light' ? oneLight : oneDark;
+type getSyntaxStyle = (theme: theme) => { [key: string]: CSSProperties };
+const getSyntaxStyle: getSyntaxStyle = (theme: theme) => {
+	switch (theme) {
+		case 'system':
+			return getSyntaxStyle(systemTheme);
+		default:
+			return theme === 'light' ? oneLight : oneDark;
+	}
+};
 
 const CodeBlock = ({ code, copyable = true }: codeBlock) => {
+	const theme = useTheme();
+	console.log(theme);
 	const onClick = () => {
 		const regex = /(~{3}[a-z]*)/gi;
 		const onlyCode = code.replace(regex, '');
@@ -41,7 +52,7 @@ const CodeBlock = ({ code, copyable = true }: codeBlock) => {
 						return match ? (
 							<SyntaxHighlighter
 								children={String(children).replace(/\n$/, '')}
-								style={syntaxStyle}
+								style={getSyntaxStyle(theme)}
 								language={match[1]}
 								PreTag='div'
 							/>

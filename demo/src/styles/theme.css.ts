@@ -20,10 +20,7 @@ export const themeVars = createGlobalThemeContract(
 		color: {
 			background: null,
 			text: null,
-			grey: {
-				dark: null,
-				light: null,
-			},
+			grey: null,
 			blue: {
 				sky: null,
 			},
@@ -36,10 +33,7 @@ export const lightTheme = {
 	color: {
 		background: colorVars.white,
 		text: colorVars.black,
-		grey: {
-			dark: colorVars.grey.dark,
-			light: colorVars.grey.light,
-		},
+		grey: colorVars.grey.light,
 		blue: {
 			sky: colorVars.skyBlue,
 		},
@@ -50,10 +44,7 @@ export const darkTheme = {
 	color: {
 		background: colorVars.black,
 		text: colorVars.white,
-		grey: {
-			dark: colorVars.grey.dark,
-			light: colorVars.grey.light,
-		},
+		grey: colorVars.grey.dark,
 		blue: {
 			sky: colorVars.skyBlue,
 		},

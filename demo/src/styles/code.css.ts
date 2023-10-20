@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { ContentWrapper } from './main.css';
+import { themeVars } from './theme.css';
 
 export const CopyBtn = style({
 	position: 'absolute',
@@ -34,7 +35,7 @@ export const CopyIcon = style({
 
 	selectors: {
 		[`${CopyBtn} > &`]: {
-			fill: '#333',
+			fill: themeVars.color.text,
 		},
 	},
 });

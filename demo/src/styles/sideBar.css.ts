@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { themeVars } from './theme.css';
 
 export const sideBarWrapper = style({
 	padding: '1rem 0',
@@ -9,7 +10,7 @@ export const sideBarWrapper = style({
 	gridTemplateRows: 'max-content minmax(0,1fr) min-content',
 	width: '16rem',
 	height: '100vh',
-	borderRight: '1px solid #eee',
+	borderRight: `1px solid ${themeVars.color.grey}`,
 });
 
 export const sideBarTitle = style({
@@ -38,23 +39,23 @@ export const sideBarList = style({
 			left: 0,
 			width: '100%',
 			height: '100%',
-			background: '#eee',
+			background: themeVars.color.grey,
 			opacity: 0,
 			transition: 'opacity 0.3s',
 			zIndex: -1,
 		},
 		'&:hover::before': {
-			opacity: 0.5,
+			opacity: 0.3,
 		},
 		'&.selected::before': {
-			opacity: 1,
+			opacity: 0.5,
 		},
 		'&.selected::after': {
 			content: '',
 			flex: '0 0 0.6rem',
 			height: '0.6rem',
-			borderTop: '2px solid #333',
-			borderRight: '2px solid #333',
+			borderTop: `2px solid ${themeVars.color.text}`,
+			borderRight: `2px solid ${themeVars.color.text}`,
 			transform: 'rotate(45deg)',
 		},
 	},
@@ -69,5 +70,5 @@ export const LinkList = style({
 export const Icon = style({
 	width: '3.2rem',
 	height: '3.2rem',
-	fill: '#333',
+	fill: themeVars.color.text,
 });

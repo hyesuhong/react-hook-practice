@@ -20,6 +20,11 @@ globalStyle(':root', {
 	},
 });
 
+globalStyle('body', {
+	background: themeVars.color.background,
+	color: themeVars.color.text,
+});
+
 globalStyle('a', {
 	textDecoration: 'none',
 	color: 'inherit',
@@ -41,12 +46,11 @@ globalStyle('#root', {
 	display: 'grid',
 	gridTemplateColumns: 'max-content 1fr',
 	gridTemplateRows: 'minmax(100vh,max-content)',
-	background: themeVars.color.background,
 });
 
 globalStyle(`${Wrapper} a`, {
 	position: 'relative',
-	color: themeVars.color.grey.dark,
+	color: themeVars.color.grey,
 	transition: 'color 0.2s',
 });
 

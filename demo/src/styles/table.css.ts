@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { themeVars } from './theme.css';
 
 export const Table = style({
 	width: '100%',
@@ -10,7 +11,7 @@ export const Table = style({
 
 export const Thead = style({
 	fontWeight: 500,
-	background: '#eee',
+	background: themeVars.color.grey,
 	height: '3.2rem',
 	textTransform: 'capitalize',
 });
