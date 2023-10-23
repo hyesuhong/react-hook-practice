@@ -9,7 +9,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-	title: 'su-hooks example',
+	title: {
+		default: 'su-hooks',
+		template: 'su-hooks | %s',
+	},
 	description: "su-hooks(react custom hook collection)'s example page",
 };
 
