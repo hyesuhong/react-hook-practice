@@ -14,7 +14,7 @@ export default function SideBar() {
 			<h1 className='text-[2.4rem] font-bold px-[1rem] mb-[3rem]'>su-hooks</h1>
 			<ul>
 				{menu.map((item, index) => {
-					const path = `/${item}`;
+					const path = `/docs/${item}`;
 					const basicClassName =
 						'h-[4rem] flex items-center justify-between px-[1rem] after:content-[""] after:flex-[0_0_0.6rem] after:h-[0.6rem] after:border-t-2 after:border-r-2 after:border-t-[#333] after:border-r-[#333] after:rotate-45 after:opacity-0 hover:bg-[#eee]/30';
 					const selectedClassName = `${basicClassName} bg-[#eee] after:opacity-100`;
