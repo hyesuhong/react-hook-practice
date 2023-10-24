@@ -47,10 +47,10 @@ export const sideBarList = style({
 		'&:hover::before': {
 			opacity: 0.5,
 		},
-		'&.selected::before': {
+		'&.active::before': {
 			opacity: 1,
 		},
-		'&.selected::after': {
+		'&.active::after': {
 			content: '',
 			flex: '0 0 0.6rem',
 			height: '0.6rem',
