@@ -24,6 +24,7 @@ export const SubTitle = style({
 	fontSize: '1.8rem',
 	fontWeight: 500,
 	marginBottom: '1rem',
+	textTransform: 'capitalize',
 });
 
 export const ContentWrapper = style({
