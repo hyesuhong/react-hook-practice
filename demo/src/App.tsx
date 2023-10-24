@@ -3,6 +3,7 @@ import SideBar from './components/SideBar';
 import MenuProvider from './contexts/MenuContext';
 import ThemeProvider from './contexts/ThemeContext';
 import { hookData } from './data/hookData';
+import * as S from './styles/main.css';
 
 const listItem = Object.keys(hookData);
 
@@ -12,7 +13,9 @@ function App() {
 			<ThemeProvider>
 				<MenuProvider menu={listItem}>
 					<SideBar />
-					<Outlet />
+					<main className={S.Wrapper}>
+						<Outlet />
+					</main>
 				</MenuProvider>
 			</ThemeProvider>
 		</>
