@@ -66,41 +66,7 @@ export const hookData: data = {
 				],
 			},
 		},
-		// preview: { type: 'preview', content: 'usecoords-ex-psy5d9' },
-		example: {
-			type: 'code',
-			content: `~~~tsx
-	import useCoords from "@su-hooks/use-coords";
-
-	export default function App() {
-		const { coords, loading, error, getPosition } = useCoords();
-
-		return (
-			<div className="App">
-				<button onClick={getPosition}>Click Me!</button>
-				{error ? (
-					<>
-						<p>error code: {error.code}</p>
-						<p>error message: {error.message}</p>
-					</>
-				) : (
-					<>
-						<p>
-							{loading ? "loading..." : coords ? "done!" : "click button first"}
-						</p>
-						{coords && (
-							<>
-								<p>lat: {coords.latitude}</p>
-								<p>lon: {coords.longitude}</p>
-							</>
-						)}
-					</>
-				)}
-			</div>
-		);
-	}
-	~~~`,
-		},
+		preview: { type: 'preview', content: 'usecoords-ex-psy5d9' },
 	},
 	useIntersection: {
 		installation: {
@@ -162,41 +128,7 @@ export const hookData: data = {
 				],
 			},
 		},
-		// preview: { type: 'preview', content: 'fervent-yalow-dk355m' },
-		example: {
-			type: 'code',
-			content: `~~~tsx
-		import useCoords from "@su-hooks/use-coords";
-
-		export default function App() {
-			const { coords, loading, error, getPosition } = useCoords();
-
-			return (
-				<div className="App">
-					<button onClick={getPosition}>Click Me!</button>
-					{error ? (
-						<>
-							<p>error code: {error.code}</p>
-							<p>error message: {error.message}</p>
-						</>
-					) : (
-						<>
-							<p>
-								{loading ? "loading..." : coords ? "done!" : "click button first"}
-							</p>
-							{coords && (
-								<>
-									<p>lat: {coords.latitude}</p>
-									<p>lon: {coords.longitude}</p>
-								</>
-							)}
-						</>
-					)}
-				</div>
-			);
-		}
-		~~~`,
-		},
+		preview: { type: 'preview', content: 'fervent-yalow-dk355m' },
 	},
 	useForm: {
 		installation: {
@@ -260,62 +192,6 @@ export const hookData: data = {
 				],
 			},
 		},
-		// preview: { type: 'preview', content: 'useform-ex-p6v9fw' },
-		example: {
-			type: 'code',
-			content: `~~~tsx
-		import useForm, { inputProps } from "@su-hooks/use-form";
-
-		const initialValue = "";
-
-		export default function App() {
-			const inputs: inputProps = {
-				email: {
-					value: initialValue,
-					validator: (value) => value.indexOf("@") > -1
-				},
-				password: { value: initialValue, validator: (value) => value.length > 7 }
-			};
-
-			const submitHandler = () => {
-				// do something...
-				console.log("submit!");
-			};
-
-			const { form, handleChange, handleSubmit, isFormValid } = useForm({
-				inputs,
-				submitHandler
-			});
-
-			return (
-				<div className="App">
-					<form onSubmit={handleSubmit}>
-						<input
-							type="email"
-							name="email"
-							value={form.email.value}
-							onChange={handleChange}
-							placeholder="Email"
-							required
-						/>
-						{form.email.value && !form.email.isValid && <p>Email must contain @</p>}
-						<input
-							type="password"
-							name="password"
-							value={form.password.value}
-							onChange={handleChange}
-							placeholder="Password"
-							required
-						/>
-						{form.password.value && !form.password.isValid && (
-							<p>Password must be at least 8 characters long</p>
-						)}
-						<button disabled={!isFormValid}>Submit</button>
-					</form>
-				</div>
-			);
-		}
-		~~~`,
-		},
+		preview: { type: 'preview', content: 'useform-ex-p6v9fw' },
 	},
 };

@@ -4,6 +4,8 @@ import Section from '../components/Section';
 import CodeBlock from '../components/code/CodeBlock';
 import Table from '../components/table/Table';
 import { section } from '../data/hookData';
+import ExampleSandbox from '../layouts/ExampleSandbox';
+import { Fragment } from 'react';
 
 const Docs = () => {
 	const { hooks } = useParams();
@@ -18,13 +20,19 @@ const Docs = () => {
 				const { type, content } = data[key];
 
 				return (
-					<Section title={key} key={index}>
-						{type === 'code'
-							? typeof content === 'string' && <CodeBlock code={content} />
-							: type === 'table'
-							? typeof content !== 'string' && <Table {...content} />
-							: typeof content === 'string' && <p>{content}</p>}
-					</Section>
+					<Fragment key={index}>
+						{type === 'preview' ? (
+							<ExampleSandbox id={content.toString()} />
+						) : (
+							<Section title={key}>
+								{type === 'code'
+									? typeof content === 'string' && <CodeBlock code={content} />
+									: type === 'table'
+									? typeof content !== 'string' && <Table {...content} />
+									: typeof content === 'string' && <p>{content}</p>}
+							</Section>
+						)}
+					</Fragment>
 				);
 			})}
 		</>
