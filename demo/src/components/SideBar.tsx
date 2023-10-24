@@ -3,6 +3,7 @@ import { useMenu, useMenuDispatch } from '../contexts/MenuContext';
 import { useTheme, useThemeDispatch } from '../contexts/ThemeContext';
 import IcoGithub from '../assets/ico-github.svg?react';
 import ThemeBtn from './theme/ThemeBtn';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
 	const { menu, current } = useMenu();
@@ -43,7 +44,7 @@ const SideBar = () => {
 						onClick={onMenuClick}
 						key={index}
 					>
-						{item}
+						<Link to={`/docs/${item}`}>{item}</Link>
 					</li>
 				))}
 			</ul>

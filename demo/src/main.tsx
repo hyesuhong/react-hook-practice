@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import { RouterProvider } from 'react-router-dom';
 import './styles/global.css.ts';
-import ThemeProvider from './contexts/ThemeContext.tsx';
-import MenuProvider from './contexts/MenuContext.tsx';
-
-const listItem = ['useCoords', 'useIntersection', 'useForm'];
+import router from './Router.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<ThemeProvider>
-			<MenuProvider menu={listItem}>
-				<App />
-			</MenuProvider>
-		</ThemeProvider>
+		<RouterProvider router={router} />
 	</React.StrictMode>
 );
