@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { makeCamelName } from '../_utils/name';
 
-const menu = ['useCoords', 'useIntersection', 'useForm'];
+const menu = ['use-coords', 'use-intersection', 'use-form'];
 
 export default function SideBar() {
 	const pathName = usePathname();
@@ -18,6 +19,9 @@ export default function SideBar() {
 					const basicClassName =
 						'h-[4rem] flex items-center justify-between px-[1rem] after:content-[""] after:flex-[0_0_0.6rem] after:h-[0.6rem] after:border-t-2 after:border-r-2 after:border-t-[#333] after:border-r-[#333] after:rotate-45 after:opacity-0 hover:bg-[#eee]/30';
 					const selectedClassName = `${basicClassName} bg-[#eee] after:opacity-100`;
+
+					const linkName = makeCamelName('-', item);
+
 					return (
 						<li key={index} className='relative text-[1.4rem]'>
 							<Link
@@ -26,7 +30,7 @@ export default function SideBar() {
 									path === pathName ? selectedClassName : basicClassName
 								}
 							>
-								{item}
+								{linkName}
 							</Link>
 						</li>
 					);
