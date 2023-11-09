@@ -6,20 +6,20 @@ export const CopyBtn = style({
 	position: 'absolute',
 	top: '1.8rem',
 	right: '1rem',
-	width: '3rem',
 	height: '3rem',
 
+	display: 'flex',
+	alignItems: 'center',
+	gap: '0.4rem',
+	paddingRight: '0.4rem',
+	color: themeVars.color.text,
+
 	background: 'transparent',
-	border: 'none',
+	border: `1px solid ${themeVars.color.text}`,
+	borderRadius: '0.4rem',
 
 	selectors: {
 		[`${ContentWrapper} > &`]: {
-			opacity: 0,
-			visibility: 'hidden',
-
-			transition: 'all 0.2s',
-		},
-		[`${ContentWrapper}:hover > &`]: {
 			visibility: 'visible',
 			opacity: 0.5,
 		},
@@ -30,8 +30,8 @@ export const CopyBtn = style({
 });
 
 export const CopyIcon = style({
-	width: '80%',
-	height: '80%',
+	width: '2.4rem',
+	height: '2.4rem',
 
 	selectors: {
 		[`${CopyBtn} > &`]: {
