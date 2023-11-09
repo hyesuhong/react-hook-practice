@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import * as S from '../styles/main.css';
 import Section from '../components/Section';
@@ -5,7 +6,6 @@ import CodeBlock from '../components/code/CodeBlock';
 import Table from '../components/table/Table';
 import { section } from '../data/hookData';
 import ExampleSandbox from '../layouts/ExampleSandbox';
-import { Fragment } from 'react';
 
 const Docs = () => {
 	const { hooks } = useParams();
@@ -22,7 +22,7 @@ const Docs = () => {
 				return (
 					<Fragment key={index}>
 						{type === 'preview' ? (
-							<ExampleSandbox id={content.toString()} />
+							<ExampleSandbox hook={hooks} files={content} />
 						) : (
 							<Section title={key}>
 								{type === 'code'

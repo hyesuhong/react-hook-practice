@@ -1,36 +1,36 @@
-import { useEffect, useState } from 'react';
-import useSandboxFile from '../hooks/useSandboxFile';
 import Section from '../components/Section';
 import CodePreview from '../components/code/CodePreview';
 import CodeBlock from '../components/code/CodeBlock';
+import { SandpackFiles } from '@codesandbox/sandpack-react';
 
 type exampleSandbox = {
-	id: string;
+	hook?: string;
+	files: SandpackFiles;
 };
 
-const ExampleSandbox = ({ id }: exampleSandbox) => {
-	const { files } = useSandboxFile(id);
-	const [exampleCode, setExampleCode] = useState(['~~~tsx', '~~~']);
+const ExampleSandbox = ({ hook = '', files }: exampleSandbox) => {
+	const name = [...hook].reduce((acc, str) => {
+		const isCapital = str.match(/[A-Z]/);
+		const nextStr = isCapital ? `-${str.toLowerCase()}` : str;
+		return acc + nextStr;
+	}, '');
+	const exampleCode = ['~~~tsx', files['/App.tsx'], '~~~'];
 
-	useEffect(() => {
-		if (files && exampleCode.length < 3) {
-			setExampleCode((prev) => [prev[0], files['/src/App.tsx'].code, prev[1]]);
-		}
-	}, [files]);
+	const setup = {
+		dependencies: {
+			[`@su-hooks/${name}`]: 'latest',
+		},
+	};
 
 	return (
 		<>
-			{files && (
-				<>
-					<Section title='preview'>
-						<CodePreview files={files} />
-					</Section>
+			<Section title='preview'>
+				<CodePreview files={files} setup={setup} />
+			</Section>
 
-					<Section title='example'>
-						<CodeBlock code={exampleCode.join('\n')} />
-					</Section>
-				</>
-			)}
+			<Section title='example'>
+				<CodeBlock code={exampleCode.join('\n')} />
+			</Section>
 		</>
 	);
 };
