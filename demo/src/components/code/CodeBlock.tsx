@@ -6,8 +6,7 @@ import {
 	oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { theme, useTheme } from '../../contexts/ThemeContext';
-import * as S from '../../styles/code.css';
-import IcoCopy from '../../assets/ico-copy.svg?react';
+import CopyBtn from './CopyBtn';
 
 interface codeBlock {
 	code: string;
@@ -28,20 +27,6 @@ const CodeBlock = ({ code, copyable = true }: codeBlock) => {
 		},
 		[theme]
 	);
-
-	const onClick = () => {
-		const regex = /(~{3}[a-z]*)/gi;
-		const onlyCode = code.replace(regex, '');
-
-		navigator.clipboard
-			.writeText(onlyCode)
-			.then(() => {
-				//
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	};
 
 	return (
 		<>
@@ -68,11 +53,7 @@ const CodeBlock = ({ code, copyable = true }: codeBlock) => {
 				{code}
 			</Markdown>
 
-			{copyable && (
-				<button className={S.CopyBtn} onClick={onClick}>
-					<IcoCopy className={S.CopyIcon} />
-				</button>
-			)}
+			{copyable && <CopyBtn code={code} />}
 		</>
 	);
 };
