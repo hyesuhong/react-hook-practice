@@ -50,8 +50,9 @@ globalStyle('#root', {
 
 globalStyle(`${Wrapper} a`, {
 	position: 'relative',
-	color: themeVars.color.grey,
-	transition: 'color 0.2s',
+	color: themeVars.color.text,
+	opacity: 0.5,
+	transition: 'color 0.2s, opacity 0.2s',
 });
 
 globalStyle(`${Wrapper} a::after`, {
@@ -67,6 +68,7 @@ globalStyle(`${Wrapper} a::after`, {
 
 globalStyle(`${Wrapper} a:hover`, {
 	color: themeVars.color.blue.sky,
+	opacity: 1,
 });
 
 globalStyle(`${Wrapper} a:hover::after`, {
