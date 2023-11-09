@@ -23,6 +23,7 @@ globalStyle(':root', {
 globalStyle('body', {
 	background: themeVars.color.background,
 	color: themeVars.color.text,
+	transition: 'background 0.3s, color 0.3s',
 });
 
 globalStyle('a', {

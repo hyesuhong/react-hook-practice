@@ -14,6 +14,7 @@ export const Thead = style({
 	background: themeVars.color.grey,
 	height: '3.2rem',
 	textTransform: 'capitalize',
+	transition: 'background 0.3s',
 });
 
 export const TbodyRow = style({
