@@ -3,9 +3,5 @@ interface layout {
 }
 
 export default function Layout({ children }: layout) {
-	return (
-		<main className='pt-[1rem] px-[1rem] pb-[4rem] text-[1.4rem]'>
-			{children}
-		</main>
-	);
+	return <main className='pt-10 px-10 pb-40 text-base'>{children}</main>;
 }

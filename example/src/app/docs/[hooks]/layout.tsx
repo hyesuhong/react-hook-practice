@@ -8,7 +8,7 @@ interface layout {
 export default function Layout({ params, children }: layout) {
 	return (
 		<>
-			<h2 className='text-[2rem] font-medium mb-[4rem]'>
+			<h2 className='text-5xl font-medium mb-40'>
 				{makeCamelName('-', params.hooks)}
 			</h2>
 			{children}
