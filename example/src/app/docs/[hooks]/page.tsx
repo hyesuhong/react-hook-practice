@@ -1,4 +1,5 @@
 import { getDocBySlug } from '@/app/api/docs/getDocs';
+import MarkdownView from '@/app/components/MarkdownView';
 
 interface Props {
 	params: { hooks: string };
@@ -20,7 +21,9 @@ export default async function Docs({ params }: Props) {
 	return (
 		<>
 			<h2 className='text-5xl font-medium mb-40'>{data.title}</h2>
-			<section>{content}</section>
+			<section>
+				<MarkdownView content={content} />
+			</section>
 		</>
 	);
 }
