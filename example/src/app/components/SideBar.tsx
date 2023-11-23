@@ -3,24 +3,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { makeCamelName } from '../_utils/name';
 
-const menu = ['use-coords', 'use-intersection', 'use-form'];
+type FileData = {
+	title: string;
+	slug: string;
+};
 
-export default function SideBar() {
+interface Props {
+	fileData: FileData[];
+}
+
+export default function SideBar({ fileData }: Props) {
 	const pathName = usePathname();
 
 	return (
 		<aside className='sticky top-0 grid grid-rows-[max-content_minmax(0,1fr)_min-content] w-160 py-10 border-r border-r-grey-light'>
 			<h1 className='text-xl font-bold px-10 mb-30'>su-hooks</h1>
 			<ul>
-				{menu.map((item, index) => {
-					const path = `/docs/${item}`;
+				{fileData.map(({ title, slug }, index) => {
+					const path = `/docs/${slug}`;
 					const basicClassName =
 						'h-40 flex items-center justify-between px-10 after:content-[""] after:flex-[0_0_0.6rem] after:h-[0.6rem] after:border-t-2 after:border-r-2 after:border-t-black after:border-r-black after:rotate-45 after:opacity-0 hover:bg-grey-light/30';
 					const selectedClassName = `${basicClassName} bg-grey-light after:opacity-100`;
-
-					const linkName = makeCamelName('-', item);
 
 					return (
 						<li key={index} className='relative text-base'>
@@ -30,7 +34,7 @@ export default function SideBar() {
 									path === pathName ? selectedClassName : basicClassName
 								}
 							>
-								{linkName}
+								{title}
 							</Link>
 						</li>
 					);
