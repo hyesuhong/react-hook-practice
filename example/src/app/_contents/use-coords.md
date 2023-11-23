@@ -22,6 +22,13 @@ npm i @su-hooks/use-coords
 
 ### Preview
 
+<iframe src="https://codesandbox.io/embed/psy5d9?view=preview&module=%2Fsrc%2FApp.tsx&hidenavigation=1"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="useCoords_ex"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
 ```tsx
 import useCoords from '@su-hooks/use-coords';
 
