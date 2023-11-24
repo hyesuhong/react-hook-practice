@@ -1,6 +1,7 @@
 ---
 title: useForm
 slug: use-form
+description: React hook to use form with input validator.
 ---
 
 ### Installation

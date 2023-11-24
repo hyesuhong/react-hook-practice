@@ -1,6 +1,7 @@
 ---
 title: useIntersection
 slug: use-intersection
+description: React hook to use Intersection Observer API.
 ---
 
 ### Installation

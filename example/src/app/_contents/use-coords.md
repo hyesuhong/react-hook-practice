@@ -1,9 +1,8 @@
 ---
 title: useCoords
 slug: use-coords
+description: Get user's current location information, such as longitude, by using the Geolocation API.
 ---
-
-Get user's current location information, such as longitude, by using the Geolocation API.
 
 ### Installation
 

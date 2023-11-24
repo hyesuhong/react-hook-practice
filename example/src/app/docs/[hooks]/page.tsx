@@ -1,5 +1,5 @@
 import { getDocBySlug } from '@/app/api/docs/getDocs';
-import MarkdownView from '@/app/components/MarkdownView';
+import MdView from '@/app/components/markdown/MdView';
 import Text from '@/app/components/basic/Text';
 
 interface Props {
@@ -24,8 +24,9 @@ export default async function Docs({ params }: Props) {
 			<Text type='h2' className='mb-40 text-center'>
 				{data.title}
 			</Text>
-			<section className='max-w-7xl mx-auto'>
-				<MarkdownView content={content} />
+			<Text className='text-center'>{data.description}</Text>
+			<section className='mt-60'>
+				<MdView content={content} />
 			</section>
 		</>
 	);
