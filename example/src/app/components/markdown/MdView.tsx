@@ -3,35 +3,23 @@
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import Text from './basic/Text';
+import Text from '../basic/Text';
+import MdContentWrapper from './MdContentWrapper';
+import CodeBlock from './CodeBlock';
 
 interface Props {
 	content: string;
 }
 
-const MarkdownView = ({ content }: Props) => {
+const MdView = ({ content }: Props) => {
 	return (
 		<>
 			<Markdown
 				remarkPlugins={[remarkGfm]}
 				rehypePlugins={[rehypeRaw]}
 				components={{
-					code: ({ children, className, node, ...rest }) => {
-						const match = /language-(\w+)/.exec(className || '');
-						return match ? (
-							<SyntaxHighlighter
-								children={String(children).replace(/\n$/, '')}
-								style={oneLight}
-								language={match[1]}
-								PreTag='div'
-							/>
-						) : (
-							<code {...rest} className={className}>
-								{children}
-							</code>
-						);
+					code: ({ children, className }) => {
+						return <CodeBlock children={children} className={className} />;
 					},
 					h1: ({ children }) => {
 						return <Text type='h1'>{children}</Text>;
@@ -51,6 +39,20 @@ const MarkdownView = ({ content }: Props) => {
 					h6: ({ children }) => {
 						return <Text type='h6'>{children}</Text>;
 					},
+					table: ({ children, ...props }) => {
+						return (
+							<MdContentWrapper>
+								<table {...props}>{children}</table>
+							</MdContentWrapper>
+						);
+					},
+					iframe: (props) => {
+						return (
+							<MdContentWrapper>
+								<iframe {...props} />
+							</MdContentWrapper>
+						);
+					},
 				}}
 			>
 				{content}
@@ -59,4 +61,4 @@ const MarkdownView = ({ content }: Props) => {
 	);
 };
 
-export default MarkdownView;
+export default MdView;
