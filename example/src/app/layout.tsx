@@ -17,22 +17,15 @@ export const metadata: Metadata = {
 	description: "su-hooks(react custom hook collection)'s example page",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	const fileData = await getDocs();
-
 	return (
 		<html lang='en'>
-			<body
-				className={`${poppins.className} grid grid-cols-[max-content_1fr] grid-rows-[minmax(100vh,max-content)]`}
-			>
-				<>
-					<SideBar fileData={fileData} />
-					{children}
-				</>
+			<body className={`${poppins.className} h-screen`}>
+				<>{children}</>
 			</body>
 		</html>
 	);
