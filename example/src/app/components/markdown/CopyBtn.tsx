@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 
 type props = {
@@ -32,8 +33,9 @@ const CopyBtn = ({ code }: props) => {
 	return (
 		<button
 			onClick={onClick}
-			className='absolute top-[1.8rem] right-10 h-30 flex item-center gap-[0.4 rem] pr-[0.4rem] text-black bg-transparent border border-black rounded-[0.4rem] opacity-50 hover:opacity-100'
+			className='absolute top-[1rem] right-10 h-30 flex items-center gap-[0.4 rem] pr-[0.4rem] text-black bg-transparent border border-black rounded-[0.4rem] opacity-50 hover:opacity-100'
 		>
+			<Image src='/ico-copy.svg' alt='copy icon' width={24} height={24} />
 			{status}
 		</button>
 	);
