@@ -1,3 +1,6 @@
+import { Obj } from '@/types/basic';
+import { GrayMatterFile } from 'gray-matter';
+
 export const getDocs = async () => {
 	const response = await fetch(`http://localhost:3000/api/docs`);
 
@@ -5,7 +8,7 @@ export const getDocs = async () => {
 		throw new Error('docs: something went to wrong');
 	}
 
-	return await response.json();
+	return (await response.json()) as Obj<any>[];
 };
 
 export const getDocBySlug = async (slug: string) => {
@@ -15,5 +18,5 @@ export const getDocBySlug = async (slug: string) => {
 		throw new Error(`doc: ${JSON.stringify(response.json())}`);
 	}
 
-	return await response.json();
+	return (await response.json()) as GrayMatterFile<string>;
 };
