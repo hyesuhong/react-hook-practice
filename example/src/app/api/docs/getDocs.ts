@@ -8,7 +8,7 @@ export const getDocs = async () => {
 		throw new Error('docs: something went to wrong');
 	}
 
-	return (await response.json()) as Obj<any>[];
+	return (await response.json()) as Obj<string>[];
 };
 
 export const getDocBySlug = async (slug: string) => {

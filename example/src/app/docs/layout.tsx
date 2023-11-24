@@ -1,7 +1,17 @@
+import { getDocs } from '../api/docs/getDocs';
+import SideBar from '../components/SideBar';
+
 interface layout {
 	children: React.ReactNode;
 }
 
-export default function Layout({ children }: layout) {
-	return <main className='pt-10 px-10 pb-40 text-base'>{children}</main>;
+export default async function Layout({ children }: layout) {
+	const fileData = await getDocs();
+
+	return (
+		<div className=' grid grid-cols-[max-content_1fr] grid-rows-[minmax(100vh,max-content)]'>
+			<SideBar fileData={fileData} />
+			<main className='pt-20 px-20 pb-40 text-base'>{children}</main>
+		</div>
+	);
 }
