@@ -6,6 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import Text from '../basic/Text';
 import MdContentWrapper from './MdContentWrapper';
 import CodeBlock from './CodeBlock';
+import Table from './Table';
 
 interface Props {
 	content: string;
@@ -42,7 +43,7 @@ const MdView = ({ content }: Props) => {
 					table: ({ children, ...props }) => {
 						return (
 							<MdContentWrapper>
-								<table {...props}>{children}</table>
+								<Table>{children}</Table>
 							</MdContentWrapper>
 						);
 					},
