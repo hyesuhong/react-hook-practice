@@ -16,7 +16,9 @@ export default function SideBar({ fileData }: Props) {
 
 	return (
 		<aside className='sticky top-0 grid grid-rows-[max-content_minmax(0,1fr)_min-content] w-160 h-screen py-10 border-r border-r-grey-light'>
-			<h1 className='text-xl font-bold px-10 mb-30'>su-hooks</h1>
+			<h1 className='text-xl font-bold px-10 mb-30'>
+				<Link href='/'>su-hooks</Link>
+			</h1>
 			<ul>
 				{fileData.map(({ title, slug }, index) => {
 					const path = `/docs/${slug}`;
