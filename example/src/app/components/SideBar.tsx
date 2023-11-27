@@ -1,7 +1,6 @@
 'use client';
 
 import { Obj } from '@/types/basic';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -40,19 +39,6 @@ export default function SideBar({ fileData }: Props) {
 					);
 				})}
 			</ul>
-			<ol className='flex px-10 items-center'>
-				<li>
-					<a href='https://github.com/hyesuhong/su-hooks' target='_blank'>
-						<Image
-							src='/ico-github.svg'
-							width='32'
-							height='32'
-							alt='github logo'
-							className=''
-						/>
-					</a>
-				</li>
-			</ol>
 		</aside>
 	);
 }
