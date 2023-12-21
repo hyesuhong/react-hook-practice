@@ -1,8 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import SideBar from './components/SideBar';
-import { getDocs } from './api/docs/getDocs';
 import Footer from './components/Footer';
 
 const poppins = Poppins({

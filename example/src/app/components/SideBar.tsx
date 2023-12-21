@@ -14,7 +14,7 @@ export default function SideBar({ fileData }: Props) {
 	const pathName = usePathname();
 
 	return (
-		<aside className='sticky top-0 grid grid-rows-[max-content_minmax(0,1fr)_min-content] w-160 h-screen py-10 border-r border-r-grey-light'>
+		<aside className='sticky top-0 grid grid-rows-[max-content_minmax(0,1fr)_min-content] w-160 h-screen py-10 border-r border-r-grey-light z-10'>
 			<h1 className='text-xl font-bold px-10 mb-30'>
 				<Link href='/'>su-hooks</Link>
 			</h1>
