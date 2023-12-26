@@ -9,7 +9,10 @@ interface Context {
 	};
 }
 
-export async function GET(request: NextRequest, context: Context) {
+export async function GET(
+	request: NextRequest,
+	context: Context
+): Promise<Response> {
 	const {
 		params: { hooks },
 	} = context;

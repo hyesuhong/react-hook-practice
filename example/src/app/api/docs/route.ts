@@ -1,7 +1,7 @@
 import { getDocFiles } from '@/app/_lib/getDocs';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<Response> {
 	try {
 		const target = await getDocFiles();
 
