@@ -20,7 +20,7 @@ const MdView = ({ content }: Props) => {
 				rehypePlugins={[rehypeRaw]}
 				components={{
 					code: ({ children, className }) => {
-						return <CodeBlock children={children} className={className} />;
+						return <CodeBlock className={className}>{children}</CodeBlock>;
 					},
 					h1: ({ children }) => {
 						return <Text type='h1'>{children}</Text>;

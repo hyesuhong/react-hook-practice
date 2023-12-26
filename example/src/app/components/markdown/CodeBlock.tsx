@@ -15,12 +15,9 @@ const CodeBlock = ({ children, className, copyable = true }: Props) => {
 	return (
 		<MdContentWrapper className='relative'>
 			{match ? (
-				<SyntaxHighlighter
-					children={String(children).replace(/\n$/, '')}
-					style={oneLight}
-					language={match[1]}
-					PreTag='div'
-				/>
+				<SyntaxHighlighter style={oneLight} language={match[1]} PreTag='div'>
+					{String(children).replace(/\n$/, '')}
+				</SyntaxHighlighter>
 			) : (
 				<code className={className}>{children}</code>
 			)}
