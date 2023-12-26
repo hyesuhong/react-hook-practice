@@ -11,20 +11,6 @@ const Footer = () => {
 						<IcoGithub className='w-[3.2rem] h-[3.2rem] fill-black' />
 					</a>
 				</li>
-				<li>
-					<button
-						style={{
-							background: 'transparent',
-							color: 'inherit',
-							border: 'none',
-							verticalAlign: 'middle',
-							width: '3.2rem',
-							height: '3.2rem',
-						}}
-					>
-						<ThemeIcon theme='light' className='w-full h-full fill-black' />
-					</button>
-				</li>
 			</ul>
 		</footer>
 	);
