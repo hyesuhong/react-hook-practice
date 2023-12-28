@@ -1,9 +1,10 @@
-import Text from './components/basic/Text';
-import { getDocs } from './api/docs/getDocs';
+import { getAllDocs } from '@/api';
+import Text from '@/components/basic/Text';
 import Link from 'next/link';
 
 export default async function Home() {
-	const fileData = await getDocs();
+	const fields = ['slug', 'title'];
+	const docs = await getAllDocs(fields);
 
 	return (
 		<>
@@ -11,7 +12,7 @@ export default async function Home() {
 				<Text type='h1'>su-hooks</Text>
 
 				<ul className='flex gap-20 mt-40'>
-					{fileData.map((data, index) => {
+					{docs.map((data, index) => {
 						const path = `/docs/${data.slug}`;
 						return (
 							<li
