@@ -1,14 +1,18 @@
-import Text from '../components/basic/Text';
+import { getAllDocs } from '@/api';
+import Text from '@/components/basic/Text';
 import Link from 'next/link';
 
 export default async function Home() {
+	const fields = ['slug', 'title'];
+	const docs = await getAllDocs(fields);
+
 	return (
 		<>
 			<main className='flex flex-col justify-center items-center h-full'>
 				<Text type='h1'>su-hooks</Text>
 
 				<ul className='flex gap-20 mt-40'>
-					{/* {fileData.map((data, index) => {
+					{docs.map((data, index) => {
 						const path = `/docs/${data.slug}`;
 						return (
 							<li
@@ -23,7 +27,7 @@ export default async function Home() {
 								</Link>
 							</li>
 						);
-					})} */}
+					})}
 				</ul>
 			</main>
 		</>
