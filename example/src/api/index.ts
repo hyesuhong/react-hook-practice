@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import { Obj } from '@/types/basic';
@@ -6,7 +6,7 @@ import { Obj } from '@/types/basic';
 const targetDir = join(process.cwd(), 'src', '_docs');
 
 export async function getDocSlugs() {
-	const dirArr = await fs.readdirSync(targetDir);
+	const dirArr = await fs.readdir(targetDir);
 
 	return dirArr ? dirArr : [];
 }
@@ -23,7 +23,7 @@ export async function getAllDocs(fields: string[] = []) {
 export async function getDocBySlug(slug: string, fields: string[] = []) {
 	const onlySlug = slug.replace(/\.md$/, '');
 	const path = join(targetDir, `${onlySlug}.md`);
-	const contents = await fs.readFileSync(path, 'utf-8');
+	const contents = await fs.readFile(path, 'utf-8');
 
 	const { data, content } = matter(contents);
 
