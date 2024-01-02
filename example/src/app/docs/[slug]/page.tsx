@@ -1,6 +1,7 @@
 import MdView from '@/components/markdown/MdView';
 import Text from '@/components/basic/Text';
 import { getAllDocs, getDocBySlug } from '@/api';
+import { notFound } from 'next/navigation';
 
 interface Props {
 	params: { slug?: string };
@@ -8,18 +9,22 @@ interface Props {
 
 export const generateStaticParams = async () => {
 	const docs = await getAllDocs(['slug']);
-	return docs.map((doc) => ({ slug: doc.slug }));
+	return docs.map((doc) => ({ slug: doc?.slug }));
 };
 
 export default async function Docs({ params }: Props) {
 	const { slug } = params;
 
 	if (!slug) {
-		return <>No Content</>;
+		return notFound();
 	}
 
 	const fields = ['slug', 'title', 'content'];
 	const doc = await getDocBySlug(slug, fields);
+
+	if (!doc) {
+		return notFound();
+	}
 
 	return (
 		<>

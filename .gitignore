@@ -36,6 +36,3 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# other example folder
-/example
