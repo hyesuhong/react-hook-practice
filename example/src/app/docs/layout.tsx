@@ -11,7 +11,7 @@ export default async function Layout({ children }: layout) {
 
 	return (
 		<div className=' grid grid-cols-[max-content_1fr] grid-rows-[minmax(100vh,max-content)]'>
-			<SideBar fileData={docs} />
+			{docs && <SideBar fileData={docs} />}
 			<main className='pt-20 px-20 pb-40 text-base'>{children}</main>
 		</div>
 	);
