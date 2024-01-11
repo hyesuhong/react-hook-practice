@@ -8,6 +8,7 @@ import {
 	cloneElement,
 	isValidElement,
 } from 'react';
+import * as S from '@/styles/docsMain.css';
 
 type Props =
 	| ReactPortal
@@ -17,7 +18,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 	switch (type) {
 		case 'thead':
 			return (
-				<thead className='h-40 bg-grey-light'>
+				<thead className={S.Thead}>
 					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
@@ -28,7 +29,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 			);
 		case 'tbody':
 			return (
-				<tbody className='group tbody'>
+				<tbody className={S.Tbody}>
 					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
@@ -39,7 +40,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 			);
 		case 'tr':
 			return (
-				<tr className='group-[.tbody]:border-b group-[.tbody]:border-b-grey-light last:border-none'>
+				<tr className={S.TbodyRow}>
 					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
@@ -51,7 +52,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 		case 'th':
 			return <th>{children}</th>;
 		case 'td':
-			return <td className='h-40 px-10'>{children}</td>;
+			return <td className={S.TbodyData}>{children}</td>;
 		default:
 			return isValidElement(children) ? (
 				cloneElement(children)

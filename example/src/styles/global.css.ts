@@ -1,5 +1,5 @@
 import { assignVars, globalStyle } from '@vanilla-extract/css';
-import { Wrapper } from './main.css';
+import { Wrapper } from './docsMain.css';
 import { darkTheme, lightTheme, themeVars } from './theme.css';
 
 globalStyle('*', {
@@ -41,12 +41,6 @@ globalStyle('img', {
 
 globalStyle('button', {
 	cursor: 'pointer',
-});
-
-globalStyle('#root', {
-	display: 'grid',
-	gridTemplateColumns: 'max-content 1fr',
-	gridTemplateRows: 'minmax(100vh,max-content)',
 });
 
 globalStyle(`${Wrapper} a`, {

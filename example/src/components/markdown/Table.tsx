@@ -1,5 +1,6 @@
 import { Children, ReactNode, isValidElement } from 'react';
 import ChildComponent from '../basic/ChildComponent';
+import * as S from '@/styles/docsMain.css';
 
 interface Props {
 	children: ReactNode;
@@ -7,7 +8,7 @@ interface Props {
 
 const Table = ({ children }: Props) => {
 	return (
-		<table className='w-full'>
+		<table className={S.Table}>
 			{Children.map<ReactNode, ReactNode>(children, (child, index) => {
 				if (isValidElement(child)) {
 					const { props, type, key } = child;
