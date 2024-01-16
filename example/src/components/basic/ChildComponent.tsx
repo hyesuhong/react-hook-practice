@@ -50,7 +50,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 				</tr>
 			);
 		case 'th':
-			return <th>{children}</th>;
+			return <th className={S.TheadData}>{children}</th>;
 		case 'td':
 			return <td className={S.TbodyData}>{children}</td>;
 		default:

@@ -26,6 +26,7 @@ export const MainPara = style({
 
 export const Section = style({
 	marginTop: '6rem',
+	maxWidth: '80rem',
 });
 
 export const SubTitle = style({
@@ -53,6 +54,23 @@ export const Thead = style({
 	height: '3.2rem',
 	textTransform: 'capitalize',
 	transition: 'background 0.3s',
+});
+
+export const TheadData = style({
+	position: 'relative',
+	selectors: {
+		'&:not(:last-child)::after': {
+			content: '',
+			position: 'absolute',
+			top: '50%',
+			right: 0,
+			translate: '0 -50%',
+			height: '70%',
+			width: 1,
+			background: themeVars.color.text,
+			opacity: 0.3,
+		},
+	},
 });
 
 export const Tbody = style({});
