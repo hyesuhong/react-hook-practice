@@ -1,7 +1,11 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {
+	oneLight,
+	oneDark,
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import MdContentWrapper from './MdContentWrapper';
 import CopyBtn from './CopyBtn';
+import * as S from '@/styles/code.css';
 
 interface Props {
 	children: React.ReactNode;
@@ -10,12 +14,17 @@ interface Props {
 }
 
 const CodeBlock = ({ children, className, copyable = true }: Props) => {
+	const theme = 'dark';
 	const match = /language-(\w+)/.exec(className || '');
 
 	return (
-		<MdContentWrapper className='relative'>
+		<MdContentWrapper className={S.CodeWrapper}>
 			{match ? (
-				<SyntaxHighlighter style={oneLight} language={match[1]} PreTag='div'>
+				<SyntaxHighlighter
+					style={theme === 'dark' ? oneDark : oneLight}
+					language={match[1]}
+					PreTag='div'
+				>
 					{String(children).replace(/\n$/, '')}
 				</SyntaxHighlighter>
 			) : (

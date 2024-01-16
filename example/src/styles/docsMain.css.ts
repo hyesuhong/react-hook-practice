@@ -10,6 +10,9 @@ export const DocsLayout = style({
 
 export const Wrapper = style([
 	{
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
 		padding: '2rem 2rem 4rem',
 	},
 	P,
@@ -26,7 +29,8 @@ export const MainPara = style({
 
 export const Section = style({
 	marginTop: '6rem',
-	maxWidth: '80rem',
+	width: '100%',
+	maxWidth: '100rem',
 });
 
 export const SubTitle = style({
