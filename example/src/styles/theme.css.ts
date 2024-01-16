@@ -13,6 +13,10 @@ const colorVars = {
 		light: '#eeeeee',
 	},
 	skyBlue: '#21B2E4',
+	blur: {
+		dark: 'rgb(51 51 51 / 0.2)',
+		light: 'rgb(255 255 255 / 0.2)',
+	},
 };
 
 export const themeVars = createGlobalThemeContract(
@@ -24,6 +28,7 @@ export const themeVars = createGlobalThemeContract(
 			blue: {
 				sky: null,
 			},
+			blur: null,
 		},
 	},
 	(_value, path) => path.map(toTitleCase).reverse().join('')
@@ -37,6 +42,7 @@ export const lightTheme = {
 		blue: {
 			sky: colorVars.skyBlue,
 		},
+		blur: colorVars.blur.light,
 	},
 };
 
@@ -48,9 +54,10 @@ export const darkTheme = {
 		blue: {
 			sky: colorVars.skyBlue,
 		},
+		blur: colorVars.blur.dark,
 	},
 };
 
-createGlobalTheme(':root.light', themeVars, lightTheme);
+createGlobalTheme(':root[data-theme="light"]', themeVars, lightTheme);
 
-createGlobalTheme(':root.dark', themeVars, darkTheme);
+createGlobalTheme(':root[data-theme="dark"]', themeVars, darkTheme);

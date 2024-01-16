@@ -11,6 +11,7 @@ export const sideBarWrapper = style({
 	width: '16rem',
 	height: '100vh',
 	borderRight: `1px solid ${themeVars.color.grey}`,
+	zIndex: 1,
 });
 
 export const sideBarTitle = style({
@@ -72,11 +73,4 @@ export const Icon = style({
 	width: '3.2rem',
 	height: '3.2rem',
 	fill: themeVars.color.text,
-});
-
-export const ThemeBtn = style({
-	background: 'transparent',
-	color: 'inherit',
-	border: 'none',
-	verticalAlign: 'middle',
 });

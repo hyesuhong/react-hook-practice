@@ -1,3 +1,5 @@
+'use client';
+
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
 	oneLight,
@@ -6,6 +8,7 @@ import {
 import MdContentWrapper from './MdContentWrapper';
 import CopyBtn from './CopyBtn';
 import * as S from '@/styles/code.css';
+import { useTheme } from 'next-themes';
 
 interface Props {
 	children: React.ReactNode;
@@ -14,7 +17,7 @@ interface Props {
 }
 
 const CodeBlock = ({ children, className, copyable = true }: Props) => {
-	const theme = 'dark';
+	const { theme } = useTheme();
 	const match = /language-(\w+)/.exec(className || '');
 
 	return (

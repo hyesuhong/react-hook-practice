@@ -8,7 +8,7 @@ export const Footer = style({
 	width: '100%',
 	padding: '1rem',
 
-	background: 'rgb(255 255 255 / 0.2)',
+	background: themeVars.color.blur,
 	backdropFilter: 'blur(4px)',
 	zIndex: 0,
 });
@@ -24,4 +24,11 @@ export const Icon = style({
 	width: '3.2rem',
 	height: '3.2rem',
 	fill: themeVars.color.text,
+});
+
+export const ThemeBtn = style({
+	background: 'transparent',
+	color: 'inherit',
+	border: 'none',
+	verticalAlign: 'middle',
 });
