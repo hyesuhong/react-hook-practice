@@ -14,7 +14,7 @@ const Provider = ({ children }: React.PropsWithChildren) => {
 		return <>{children}</>;
 	}
 
-	return <ThemeProvider defaultTheme='dart'>{children}</ThemeProvider>;
+	return <ThemeProvider defaultTheme='dark'>{children}</ThemeProvider>;
 };
 
 export default Provider;
