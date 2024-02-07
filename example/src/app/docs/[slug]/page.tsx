@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllDocs, getDocBySlug } from '@/api';
 import MdView from '@/components/markdown/MdView';
@@ -7,6 +8,16 @@ import * as S from '@/styles/docsMain.css';
 interface Props {
 	params: { slug?: string };
 }
+
+export const generateMetadata = async ({
+	params,
+}: Props): Promise<Metadata> => {
+	const slug = params.slug;
+
+	return {
+		title: slug || '',
+	};
+};
 
 export const generateStaticParams = async () => {
 	const docs = await getAllDocs(['slug']);
