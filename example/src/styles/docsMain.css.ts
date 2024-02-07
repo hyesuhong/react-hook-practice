@@ -55,13 +55,13 @@ export const Table = style({
 export const Thead = style({
 	fontWeight: 500,
 	background: themeVars.color.grey,
-	height: '3.2rem',
 	textTransform: 'capitalize',
 	transition: 'background 0.3s',
 });
 
 export const TheadData = style({
 	position: 'relative',
+	height: '3.2rem',
 	selectors: {
 		'&:not(:last-child)::after': {
 			content: '',
