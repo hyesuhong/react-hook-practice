@@ -1,3 +1,4 @@
+import * as S from '@/styles/docsMain.css';
 import {
 	Children,
 	JSXElementConstructor,
@@ -8,18 +9,21 @@ import {
 	cloneElement,
 	isValidElement,
 } from 'react';
-import * as S from '@/styles/docsMain.css';
 
 type Props =
 	| ReactPortal
 	| ReactElement<unknown, string | JSXElementConstructor<any>>;
 
-const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
+const ChildComponent = ({
+	children,
+	type,
+	...restProps
+}: PropsWithChildren<Props>) => {
 	switch (type) {
 		case 'thead':
 			return (
 				<thead className={S.Thead}>
-					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
+					{Children.map<ReactNode, ReactNode>(children, (child) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
 							return <ChildComponent type={type} {...props} />;
@@ -30,7 +34,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 		case 'tbody':
 			return (
 				<tbody className={S.Tbody}>
-					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
+					{Children.map<ReactNode, ReactNode>(children, (child) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
 							return <ChildComponent type={type} {...props} />;
@@ -41,7 +45,7 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 		case 'tr':
 			return (
 				<tr className={S.TbodyRow}>
-					{Children.map<ReactNode, ReactNode>(children, (child, index) => {
+					{Children.map<ReactNode, ReactNode>(children, (child) => {
 						if (isValidElement(child)) {
 							const { props, type, key } = child;
 							return <ChildComponent type={type} {...props} />;
@@ -50,9 +54,17 @@ const ChildComponent = ({ children, type }: PropsWithChildren<Props>) => {
 				</tr>
 			);
 		case 'th':
-			return <th className={S.TheadData}>{children}</th>;
+			return (
+				<th className={S.TheadData} {...restProps}>
+					{children}
+				</th>
+			);
 		case 'td':
-			return <td className={S.TbodyData}>{children}</td>;
+			return (
+				<td className={S.TbodyData} {...restProps}>
+					{children}
+				</td>
+			);
 		default:
 			return isValidElement(children) ? (
 				cloneElement(children)

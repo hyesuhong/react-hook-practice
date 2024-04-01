@@ -1,11 +1,11 @@
 'use client';
 
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import Text from '../basic/Text';
-import MdContentWrapper from './MdContentWrapper';
 import CodeBlock from './CodeBlock';
+import MdContentWrapper from './MdContentWrapper';
 import Table from './Table';
 
 interface Props {
