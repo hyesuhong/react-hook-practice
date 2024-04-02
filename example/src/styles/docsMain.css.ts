@@ -62,6 +62,7 @@ export const Thead = style({
 export const TheadData = style({
 	position: 'relative',
 	height: '3.2rem',
+	padding: '0 1rem',
 	selectors: {
 		'&:not(:last-child)::after': {
 			content: '',
@@ -77,7 +78,9 @@ export const TheadData = style({
 	},
 });
 
-export const Tbody = style({});
+export const Tbody = style({
+	padding: '0.5rem 1rem',
+});
 
 export const TbodyRow = style({
 	selectors: {

@@ -45,8 +45,8 @@ globalStyle('button', {
 
 globalStyle(`${Wrapper} a`, {
 	position: 'relative',
-	color: themeVars.color.text,
-	opacity: 0.5,
+	color: themeVars.color.blue.sky,
+	opacity: 1,
 	transition: 'color 0.2s, opacity 0.2s',
 });
 
@@ -59,11 +59,6 @@ globalStyle(`${Wrapper} a::after`, {
 	height: '1px',
 	background: themeVars.color.blue.sky,
 	transition: 'width 0.2s',
-});
-
-globalStyle(`${Wrapper} a:hover`, {
-	color: themeVars.color.blue.sky,
-	opacity: 1,
 });
 
 globalStyle(`${Wrapper} a:hover::after`, {
